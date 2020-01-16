@@ -1,4 +1,5 @@
 // import React from 'react';
+// import { AuthConsumer } from './AuthContext';
 
 // class SignUpLogInForm extends React.Component {
 //   emailInput = React.createRef()
