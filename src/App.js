@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import RegistrationForm from './components/RegistrationForm';
+// import Header from './components/Header';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import SignInLogInForm from './components/SignUpLogInForm';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <h1>Seed & Feed goes to SPOLETO!</h1>
+        
+        
+        {/* <Header /> */}
+        <BrowserRouter>
+          {/* <AuthProvider>
+            <Header />
+            <Switch> */}
+              <Route 
+                exact
+                path='/'
+                component={RegistrationForm} 
+              />
+
+              {/* <Route component={PageNotFound} /> */}
+              
+            {/* </Switch>
+          </AuthProvider> */}
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
 export default App;
