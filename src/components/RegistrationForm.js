@@ -1,6 +1,6 @@
 import React from 'react';
 import { registrationsRef } from '../firebase';
-f
+
 class RegistrationForm extends React.Component {
   state = {
     userId: '',
