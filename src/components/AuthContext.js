@@ -36,7 +36,7 @@ class AuthProvider extends React.Component {
         email,
         password
       )
-      this.props.history.push(`/${this.state.user.id}/boards`)
+      this.props.history.push(`/dashboard`)
     } catch(error) {
       this.setState({
         authMessage: error.message 

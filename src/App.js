@@ -4,29 +4,38 @@ import RegistrationForm from './components/RegistrationForm';
 // import Header from './components/Header';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SignInLogInForm from './components/SignUpLogInForm';
+import Dashboard from './components/Dashboard';
+import SignUpLogInForm from './components/SignUpLogInForm';
+import AuthProvider from './components/AuthContext';
 
 class App extends React.Component {
   render() {
     return (
       <div>
         <h1>Seed & Feed goes to SPOLETO!</h1>
-        
-        
-        {/* <Header /> */}
+ 
         <BrowserRouter>
-          {/* <AuthProvider>
-            <Header />
-            <Switch> */}
+          <AuthProvider>
+            {/* <Header /> */}
+            <Switch>
               <Route 
                 exact
                 path='/'
-                component={RegistrationForm} 
+                component={SignUpLogInForm} 
               />
+
+              <Route
+                path='/dashboard'
+                component={Dashboard}
+              />
+
+              
+
 
               {/* <Route component={PageNotFound} /> */}
               
-            {/* </Switch>
-          </AuthProvider> */}
+            </Switch>
+          </AuthProvider>
         </BrowserRouter>
       </div>
     );
