@@ -1,18 +1,20 @@
 import React from 'react';
 import { AuthConsumer } from './AuthContext';
+import { longStackSupport } from 'q';
 
 class SignUpLogInForm extends React.Component {
   emailInput = React.createRef()
   passwordInput = React.createRef()
 
-  redirect = (userId) => {
-    this.props.history.push(`/${userId}/boards`)
+  redirect = () => {
+    this.props.history.push(`/dashboard`)
+    // this.props.history.push(`/${userId}/dashboard`)
   }
 
   render() {
     return (
       <AuthConsumer>
-        {({signUp, logIn, user, authMessage}) => (
+        {({signUp, logIn, user, authMessage, logOut}) => (
           <React.Fragment>
             {!user.id ? (
               <div className='sign-up-wrapper'>
@@ -57,9 +59,13 @@ class SignUpLogInForm extends React.Component {
                   </div>
                   
                 </form>
+
               </div>
             ) : (
-              <button onClick={() => this.redirect(user.id)}>Go to My Dashboard</button>
+              <div>
+                <button onClick={() => this.redirect()}>Go to My Dashboard</button>
+                <button onClick={logOut}>Log Out</button>
+              </div>
             )}
           </React.Fragment>
         )}

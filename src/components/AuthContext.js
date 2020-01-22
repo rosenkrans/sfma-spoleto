@@ -51,7 +51,7 @@ class AuthProvider extends React.Component {
         email,
         password 
       )
-      this.props.history.push(`/${this.state.user.id}/boards`)
+      this.props.history.push(`/dashboard`)
       console.log('logged in')
     } catch(error) {
         this.setState({

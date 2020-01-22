@@ -1,11 +1,25 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import { AuthConsumer } from './AuthContext';
 
 class Dashboard extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Dashboard Page HOORAY!</h1>
-      </div>
+      <AuthConsumer>
+        {({user}) => (
+          <React.Fragment>
+            
+            <h1>Dashboard Page HOORAY!</h1>
+            <Link to={`${user.id}/registration`}>Register</Link>
+
+          </React.Fragment>
+        )}
+
+
+
+
+        
+      </AuthConsumer>
     )
   }
 }

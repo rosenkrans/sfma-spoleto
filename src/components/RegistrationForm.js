@@ -20,7 +20,6 @@ class RegistrationForm extends React.Component {
     e.preventDefault();
     console.log(this.state)
     const newRegistration = await registrationsRef.add({ registration:this.state })
-
   }
 
   render() {
@@ -33,7 +32,6 @@ class RegistrationForm extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <input
-              // ref={this.nameInput}
               type='text'
               name='name'
               placeholder='First and Last Name'
@@ -42,7 +40,6 @@ class RegistrationForm extends React.Component {
           </div>
           <div>
             <input
-              // ref={this.Input}
               type='text'
               name='address'
               placeholder='Address'
@@ -51,7 +48,6 @@ class RegistrationForm extends React.Component {
           </div>
           <div>
             <input
-              // ref={this.Input}
               type='tel'
               name='phone'
               pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
@@ -61,7 +57,6 @@ class RegistrationForm extends React.Component {
           </div>
           <div>
             <input
-              // ref={this.emailInput}
               type='email'
               name='email'
               placeholder='Email'
