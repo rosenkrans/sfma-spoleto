@@ -18,8 +18,8 @@ class RegistrationForm extends React.Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(this.state)
-    const newRegistration = await registrationsRef.add({ registration:this.state })
+    console.log(this.props.match.params.userId)
+    const newRegistration = await registrationsRef.add({ registration:{...this.state, userId: this.props.match.params.userId} })
   }
 
   render() {
