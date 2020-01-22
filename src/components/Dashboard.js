@@ -11,6 +11,7 @@ class Dashboard extends React.Component {
             
             <h1>Dashboard Page HOORAY!</h1>
             <Link to={`${user.id}/registration`}>Register</Link>
+            <Link to={`${user.id}/healthform`}>Health Info</Link>
 
           </React.Fragment>
         )}

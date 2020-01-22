@@ -7,6 +7,7 @@ import Dashboard from './components/Dashboard';
 import SignUpLogInForm from './components/SignUpLogInForm';
 import AuthProvider from './components/AuthContext';
 import Navbar from './components/Navbar';
+import HealthForm from './components/HealthForm';
 
 class App extends React.Component {
   render() {
@@ -30,6 +31,10 @@ class App extends React.Component {
               <Route 
                 path='/:userId/registration'
                 component={RegistrationForm}
+              />
+              <Route
+                path='/:userId/healthform'
+                component={HealthForm}
               />
 
               {/* <Route component={PageNotFound} /> */}             
