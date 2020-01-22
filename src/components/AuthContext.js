@@ -12,7 +12,7 @@ class AuthProvider extends React.Component {
     authMessage: ''
   }
 
-  componentWillMount() {
+  componentDidMount() {
     firebaseAuth.onAuthStateChanged((user) => {
       if(user) {
         this.setState({

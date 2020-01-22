@@ -55,10 +55,11 @@ class SignUpLogInForm extends React.Component {
                       Sign Up
                     </button>
                   </div>
+                  
                 </form>
               </div>
             ) : (
-              <button onClick={() => this.redirect(user.id)}>Go to My Boards</button>
+              <button onClick={() => this.redirect(user.id)}>Go to My Dashboard</button>
             )}
           </React.Fragment>
         )}
