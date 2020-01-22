@@ -14,12 +14,7 @@ class Dashboard extends React.Component {
 
           </React.Fragment>
         )}
-
-
-
-
-        
-      </AuthConsumer>
+     </AuthConsumer>
     )
   }
 }

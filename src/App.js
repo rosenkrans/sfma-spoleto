@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import RegistrationForm from './components/RegistrationForm';
-// import Header from './components/Header';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SignInLogInForm from './components/SignUpLogInForm';
 import Dashboard from './components/Dashboard';
@@ -13,8 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>Seed & Feed goes to SPOLETO!</h1>
-        
+        <h1 className="main-header">Seed & Feed goes to SPOLETO!</h1>
  
         <BrowserRouter>
           <AuthProvider>

@@ -29,7 +29,7 @@ class RegistrationForm extends React.Component {
           <h2>Registration Form</h2>
         </div>
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="form">
           <div>
             <input
               type='text'
