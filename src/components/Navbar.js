@@ -8,7 +8,6 @@ const Navbar = () => {
       {({user, logOut}) => (
         <React.Fragment>
           <div className="navbar">
-            {/* <h2>Navbar</h2> */}
             {user.id ? (
               <React.Fragment>
                 <div className="nav-links">
