@@ -33,6 +33,7 @@ class HealthForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="form">
           <div>
             <input
+              className='health-input'
               type='text'
               name='name'
               placeholder='First and Last Name'
@@ -41,6 +42,7 @@ class HealthForm extends React.Component {
           </div>
           <div>
             <input
+              className='health-input'
               type='text'
               name='allergies'
               placeholder='Allergies'
@@ -49,6 +51,7 @@ class HealthForm extends React.Component {
           </div>
           <div>
             <input
+              className='health-input'
               type='text'
               name='medConditions'              
               placeholder='Medical Conditions'
@@ -57,6 +60,7 @@ class HealthForm extends React.Component {
           </div>
           <div>
             <input
+              className='health-input'
               type='text'
               name='medications'
               placeholder='Medications'
@@ -65,6 +69,7 @@ class HealthForm extends React.Component {
           </div>
           <div>
             <input
+              className='health-input'
               type='text'
               name='medInstructions'
               placeholder='Medical Instructions'
@@ -73,6 +78,7 @@ class HealthForm extends React.Component {
           </div>
           
           <button 
+            className='submit-button'
             type='submit' 
             value='Submit'
           >

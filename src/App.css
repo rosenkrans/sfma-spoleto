@@ -1,4 +1,77 @@
-.App {
+.full-page{
+  background-color: #CD2635;
+}
+
+.main-header{
+  background-color: #CD2635;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.navbar{
+  background-color: yellow;
+}
+
+.nav-links{
+  padding-top: 25px;
+  margin-left: 20px;
+  font-size: 25px;
+}
+
+.dashboard-links{
+  margin-left: 20px;
+  font-size: 25px;
+}
+
+.dash-link{
+  margin-right: 30px;
+  padding-bottom: 20px;
+}
+
+.registration-form-wrapper{
+  text-align: center;
+}
+
+.reg-input{
+  margin-bottom: 20px;
+}
+
+.health-form-wrapper{
+  text-align: center;
+}
+
+.health-input{
+  margin-bottom: 20px;
+}
+
+.submit-button{
+  margin-bottom: 30px;
+}
+
+.user-logout{
+  text-align: right;
+  font-size: 25px;
+}
+
+.logout-button{
+  font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +108,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

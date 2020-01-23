@@ -32,6 +32,7 @@ class RegistrationForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="form">
           <div>
             <input
+              className='reg-input'
               type='text'
               name='name'
               placeholder='First and Last Name'
@@ -40,6 +41,7 @@ class RegistrationForm extends React.Component {
           </div>
           <div>
             <input
+              className='reg-input'
               type='text'
               name='address'
               placeholder='Address'
@@ -48,6 +50,7 @@ class RegistrationForm extends React.Component {
           </div>
           <div>
             <input
+              className='reg-input'
               type='tel'
               name='phone'
               pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
@@ -57,6 +60,7 @@ class RegistrationForm extends React.Component {
           </div>
           <div>
             <input
+              className='reg-input'
               type='email'
               name='email'
               placeholder='Email'
@@ -65,6 +69,7 @@ class RegistrationForm extends React.Component {
           </div>
           
           <button 
+            className='submit-button'
             type='submit' 
             value='Submit'
           >

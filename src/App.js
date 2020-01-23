@@ -12,7 +12,7 @@ import HealthForm from './components/HealthForm';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div className="full-page">
         <h1 className="main-header">Seed & Feed goes to SPOLETO!</h1>
  
         <BrowserRouter>
