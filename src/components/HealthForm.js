@@ -8,7 +8,7 @@ class HealthForm extends React.Component {
     allergies: '',
     medConditions: '',
     medications: '',
-    medInstructions:''
+    medInstructions: ''
   }
 
   handleInputChange = (e) => {
