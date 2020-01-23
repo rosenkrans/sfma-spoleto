@@ -27,7 +27,7 @@ class RegistrationForm extends React.Component {
     return (
       <div className="registration-form-wrapper">
         <div>
-          <h2>Registration Form</h2>
+          <h1>Registration Form</h1>
         </div>
 
         <form onSubmit={this.handleSubmit} className="form">

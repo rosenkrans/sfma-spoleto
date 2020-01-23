@@ -5,7 +5,7 @@ body{
 .main-header{
   background-color: #CD2635;
   text-align: center;
-  padding-top: 25px;
+  padding-top: 15px;
 }
 
 .navbar{
@@ -13,7 +13,7 @@ body{
 }
 
 .nav-links{
-  padding-top: 25px;
+  padding-top: 20px;
   margin-left: 20px;
   font-size: 25px;
 }
@@ -44,6 +44,7 @@ body{
 
 .reg-input{
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .health-form-wrapper{
@@ -52,10 +53,12 @@ body{
 
 .health-input{
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 .submit-button{
   margin-bottom: 30px;
+  font-size: 15px;
 }
 
 .logout-button{

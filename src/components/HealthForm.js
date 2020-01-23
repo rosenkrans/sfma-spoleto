@@ -28,7 +28,7 @@ class HealthForm extends React.Component {
     return (
       <div className="health-form-wrapper">
         <div>
-          <h2>Health Form</h2>
+          <h1>Health Form</h1>
         </div>
 
         <form onSubmit={this.handleSubmit} className="form">
