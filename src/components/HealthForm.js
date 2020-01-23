@@ -4,6 +4,7 @@ import { healthsRef } from '../firebase';
 class HealthForm extends React.Component {
   state = {
     userId: '',
+    createdAt: new Date(),
     name: '',
     allergies: '',
     medConditions: '',
