@@ -19,7 +19,7 @@ const Navbar = () => {
                 </div>
               </React.Fragment>
             ) : (
-              <small>Please Sign In</small>
+              <small>Please Sign In Below</small>
             )}
             
           </div>
