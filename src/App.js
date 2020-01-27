@@ -10,6 +10,7 @@ import HealthForm from './components/HealthForm';
 import ParkingForm from './components/ParkingForm';
 import AboutTheUserForm from './components/AboutTheUserForm';
 import AboutTheTripForm from './components/AboutTheTripForm';
+import AboutYourPeopleForm from './components/AboutYourPeopleForm';
 
 class App extends React.Component {
   render() {
@@ -49,6 +50,10 @@ class App extends React.Component {
               <Route
                 path='/:userId/abouttrip'
                 component={AboutTheTripForm}
+              />
+              <Route
+                path='/:userId/yourpeople'
+                component={AboutYourPeopleForm}
               />
 
               {/* <Route component={PageNotFound} /> */}             
