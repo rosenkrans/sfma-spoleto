@@ -24,6 +24,6 @@ const firebaseAuth = firebase.auth()
 const registrationsRef = db.collection('registrations')
 const healthsRef = db.collection('healths')
 const parkingsRef = db.collection('parkings')
+const aboutusersRef = db.collection('aboutusers')
 
-export { registrationsRef, healthsRef, parkingsRef, firebaseAuth }
-
+export { registrationsRef, healthsRef, parkingsRef, aboutusersRef, firebaseAuth }

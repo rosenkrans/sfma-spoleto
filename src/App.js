@@ -8,6 +8,7 @@ import AuthProvider from './components/AuthContext';
 import Navbar from './components/Navbar';
 import HealthForm from './components/HealthForm';
 import ParkingForm from './components/ParkingForm';
+import AboutTheUserForm from './components/AboutTheUserForm';
 
 class App extends React.Component {
   render() {
@@ -39,6 +40,10 @@ class App extends React.Component {
               <Route
                 path='/:userId/parkingform'
                 component={ParkingForm}
+              />
+              <Route
+                path='/:userId/aboutyou'
+                component={AboutTheUserForm}
               />
 
               {/* <Route component={PageNotFound} /> */}             

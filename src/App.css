@@ -80,9 +80,19 @@ body{
   margin-bottom: 20px;
 }
 
+.about-user-form-wrapper{
+  text-align: center;
+}
 
+.about-input{
+  margin-bottom: 20px;
+  font-size: 20px;
+}
 
-
+.radio-buttons{
+  text-align: center;
+  width: 200px;
+}
 
 
 
