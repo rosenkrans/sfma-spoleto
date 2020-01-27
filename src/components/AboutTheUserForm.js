@@ -51,7 +51,7 @@ class AboutTheUserForm extends React.Component {
               onChange={this.handleInputChange}
             />
           </div>
-          <div>
+          
           <div>
             <input
               className='about-input'
@@ -62,6 +62,7 @@ class AboutTheUserForm extends React.Component {
               onChange={this.handleInputChange}
             />
           </div>
+          <div>
           <input
               className='about-input'
               type='text'
@@ -72,10 +73,22 @@ class AboutTheUserForm extends React.Component {
           </div>
           <div>
             <RadioGroup onChange={ this.onChange } className="radio-buttons">
-              <RadioButton value="apply-stipend">
+              <RadioButton 
+                className='about-input'
+                type='radio'
+                name='stipend'
+                value="yes"
+                onChange={this.handleInputChange}
+              >
                 Apply Stipend
               </RadioButton>
-              <RadioButton value="no-stipend">
+              <RadioButton 
+                className='about-input'
+                type='radio'
+                name='stipend'
+                value="no"
+                onChange={this.handleInputChange}
+              >
                 No Stipend
               </RadioButton>
             </RadioGroup>
