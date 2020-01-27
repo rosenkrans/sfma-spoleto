@@ -3,7 +3,44 @@ import { abouttripsRef } from '../firebase';
 import DatePicker from 'react-date-picker' 
 import Dropdown from 'react-dropdown';
 
-const options = ['1', '2', '3']
+const options = [
+  {
+    label: '0',
+    value: 0
+  },
+  {
+    label: '1',
+    value: 1
+  }, 
+  {
+    label: '2',
+    value: 2
+  }, 
+  {
+    label: '3',
+    value: 3
+  },
+  {
+    label: '4',
+    value: 4
+  },
+  {
+    label: '5',
+    value: 5
+  },
+  {
+    label: '6',
+    value: 6
+  },
+  {
+    label: '7',
+    value: 7
+  },
+  {
+    label: '8',
+    value: 8
+  }
+]
 
 class AboutTheTripForm extends React.Component {
   state = {
@@ -19,7 +56,9 @@ class AboutTheTripForm extends React.Component {
       adult: '',
       minor: ''
     },
-    parking: ''
+    parking: {
+      spot: ''
+    }
   }
 
   handleInputChange = (e) => {
@@ -47,23 +86,14 @@ class AboutTheTripForm extends React.Component {
     });
   }
 
-  _onSelect = (option) => {
-    console.log('You selected ', option.target.name)
-    // this.setState({selected: option})
+  _onSelect = (stateKey, objectKey, option) => {
+    console.log('You selected ', option)
+    this.setState({[stateKey]: {...this.state[stateKey], [objectKey]: option.value}})
   }
-
-  // onSelect = (e) => {
-  //   const options = [
-  //     '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
-  //   ]
-  //   const defaultOption = options[0]
-  //   this.setState({
-  //     [e.target.name]: e.target.value
-  //   })
-  // }
   
   render() {
     const defaultOption = this.state.selected
+    var message='You\'ve selected ';
     return (
       <div className="about-trip-form-wrapper">
         <div>
@@ -72,7 +102,9 @@ class AboutTheTripForm extends React.Component {
 
         <form onSubmit={this.handleSubmit} className="form">
           <div>
+            <p>Check-In Date</p>
             <DatePicker 
+              className='trip-datepicker'
               value={this.state.checkIn}
               name='checkIn'
               selected={this.state.checkIn}
@@ -81,7 +113,9 @@ class AboutTheTripForm extends React.Component {
             />
           </div>
           <div>
+            <p>Check-Out Date</p>
             <DatePicker 
+              className='trip-datepicker'
               value={this.state.checkOut}
               name='checkOut'
               selected={this.state.checkOut}
@@ -92,20 +126,55 @@ class AboutTheTripForm extends React.Component {
 
           <div>
             <Dropdown 
+              className='trip-dropdown'
               options={options} 
-              onChange={(e) => this._onSelect(e)} 
+              onChange={(option) => this._onSelect('rooms', 'typeA', option)}
               value={defaultOption} 
-              name='rooms'
+              name='typeA'
               placeholder="Room Type A: $100/night" 
+            />
+            <p>{message} {this.state.rooms.typeA} typeA rooms</p>
+          </div>
+          <div>
+            <Dropdown 
+              className='trip-dropdown'
+              options={options} 
+              onChange={(option) => this._onSelect('rooms', 'typeB', option)}
+              value={defaultOption} 
+              name='typeB'
+              placeholder="Room Type B: $200/night" 
+            />
+          </div>
+
+          <div>
+            <Dropdown 
+              className='trip-dropdown'
+              options={options} 
+              onChange={(option) => this._onSelect('people', 'adult', option)}
+              value={defaultOption} 
+              name='adult'
+              placeholder="Number of Adults" 
             />
           </div>
           <div>
             <Dropdown 
+              className='trip-dropdown'
               options={options} 
-              onChange={this._onSelect} 
+              onChange={(option) => this._onSelect('people', 'minor', option)}
               value={defaultOption} 
-              name='people'
-              placeholder="Room Type B: $200/night" 
+              name='minor'
+              placeholder="Number of Minors" 
+            />
+          </div>
+
+          <div>
+            <Dropdown 
+              className='trip-dropdown'
+              options={options} 
+              value={defaultOption} 
+              onChange={(option) => this._onSelect('parking', 'spot', option)}
+              name='parking'
+              placeholder="Number of Parking Spots" 
             />
           </div>
                    

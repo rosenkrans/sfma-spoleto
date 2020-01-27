@@ -94,7 +94,17 @@ body{
   width: 200px;
 }
 
+.about-trip-form-wrapper{
+  text-align: center;
+}
 
+.trip-datepicker{
+  font-size: 20px;
+}
 
+.trip-dropdown{
+  padding-top: 40px;
+  font-size: 20px;
+}
 
 
