@@ -3,14 +3,22 @@ import { abouttripsRef } from '../firebase';
 import DatePicker from 'react-date-picker' 
 import Dropdown from 'react-dropdown';
 
+const options = ['1', '2', '3']
+
 class AboutTheTripForm extends React.Component {
   state = {
     userId: '',
     createdAt: new Date(),
     checkIn: new Date(),
     checkOut: new Date(),
-    rooms: '',
-    people: '',
+    rooms: {
+      typeA: '',
+      typeB: ''
+    },
+    people: {
+      adult: '',
+      minor: ''
+    },
     parking: ''
   }
 
@@ -39,17 +47,23 @@ class AboutTheTripForm extends React.Component {
     });
   }
 
-  onSelect = (e) => {
-    const options = [
-      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
-    ]
-    const defaultOption = options[0]
-    this.setState({
-      [e.target.name]: e.target.value
-    })
+  _onSelect = (option) => {
+    console.log('You selected ', option.target.name)
+    // this.setState({selected: option})
   }
+
+  // onSelect = (e) => {
+  //   const options = [
+  //     '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
+  //   ]
+  //   const defaultOption = options[0]
+  //   this.setState({
+  //     [e.target.name]: e.target.value
+  //   })
+  // }
   
   render() {
+    const defaultOption = this.state.selected
     return (
       <div className="about-trip-form-wrapper">
         <div>
@@ -78,18 +92,20 @@ class AboutTheTripForm extends React.Component {
 
           <div>
             <Dropdown 
-              options={this.options} 
-              onChange={this._onSelect} 
-              value={this.defaultOption} 
-              placeholder="Rooms Type A" 
+              options={options} 
+              onChange={(e) => this._onSelect(e)} 
+              value={defaultOption} 
+              name='rooms'
+              placeholder="Room Type A: $100/night" 
             />
           </div>
           <div>
             <Dropdown 
-              options={this.options} 
+              options={options} 
               onChange={this._onSelect} 
-              value={this.defaultOption} 
-              placeholder="Rooms Type B" 
+              value={defaultOption} 
+              name='people'
+              placeholder="Room Type B: $200/night" 
             />
           </div>
                    
