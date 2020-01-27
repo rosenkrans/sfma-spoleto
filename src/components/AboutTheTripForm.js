@@ -7,8 +7,8 @@ class AboutTheTripForm extends React.Component {
   state = {
     userId: '',
     createdAt: new Date(),
-    checkIn: '',
-    checkOut: '',
+    checkIn: new Date(),
+    checkOut: new Date(),
     rooms: '',
     people: '',
     parking: ''
@@ -26,6 +26,19 @@ class AboutTheTripForm extends React.Component {
     const newAboutTrip = await abouttripsRef.add({ aboutTrip:{...this.state, userId: this.props.match.params.userId} })
   }
 
+  handleDateChange(dateName, dateValue) {
+    let { checkIn, checkOut } = this.state;
+    if (dateName === 'checkIn') {
+      checkIn = dateValue;
+    } else {
+      checkOut = dateValue;
+    }
+    this.setState({
+      checkIn,
+      checkOut,
+    });
+  }
+
   onSelect = (e) => {
     const options = [
       '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'
@@ -36,7 +49,6 @@ class AboutTheTripForm extends React.Component {
     })
   }
   
-
   render() {
     return (
       <div className="about-trip-form-wrapper">
@@ -46,11 +58,24 @@ class AboutTheTripForm extends React.Component {
 
         <form onSubmit={this.handleSubmit} className="form">
           <div>
-            <DatePicker />
+            <DatePicker 
+              value={this.state.checkIn}
+              name='checkIn'
+              selected={this.state.checkIn}
+              value={this.state.checkIn}
+              onChange={date => this.handleDateChange('checkIn', date)}
+            />
           </div>
           <div>
-            <DatePicker />
+            <DatePicker 
+              value={this.state.checkOut}
+              name='checkOut'
+              selected={this.state.checkOut}
+              value={this.state.checkOut}
+              onChange={date => this.handleDateChange('checkOut', date)}
+            />
           </div>
+
           <div>
             <Dropdown 
               options={this.options} 
@@ -67,8 +92,7 @@ class AboutTheTripForm extends React.Component {
               placeholder="Rooms Type B" 
             />
           </div>
-          
-          
+                   
           <button 
             className='submit-button'
             type='submit' 
