@@ -1,6 +1,5 @@
 import React from 'react';
 import { aboutusersRef } from '../firebase';
-import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
 class AboutTheUserForm extends React.Component {
   state = {
@@ -18,7 +17,6 @@ class AboutTheUserForm extends React.Component {
       [e.target.name]: e.target.value
     })
   }
-
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
@@ -31,7 +29,6 @@ class AboutTheUserForm extends React.Component {
         <div>
           <h1>First, tell us about you</h1>
         </div>
-
         <form onSubmit={this.handleSubmit} className="form">
           <div>
             <input
@@ -50,8 +47,7 @@ class AboutTheUserForm extends React.Component {
               placeholder='Email'
               onChange={this.handleInputChange}
             />
-          </div>
-          
+          </div>         
           <div>
             <input
               className='about-input'
@@ -72,26 +68,31 @@ class AboutTheUserForm extends React.Component {
             />
           </div>
           <div>
-            <RadioGroup onChange={ this.onChange } className="radio-buttons">
-              <RadioButton 
-                className='about-input'
-                type='radio'
-                name='stipend'
-                value="yes"
-                onChange={this.handleInputChange}
-              >
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  name="stipend"
+                  value="yes"
+                  checked={this.state.stipend === "yes"}
+                  onChange={this.handleInputChange}
+                />
                 Apply Stipend
-              </RadioButton>
-              <RadioButton 
-                className='about-input'
-                type='radio'
-                name='stipend'
-                value="no"
-                onChange={this.handleInputChange}
-              >
+              </label>
+            </div>
+​
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  name="stipend"
+                  value="no"
+                  checked={this.state.stipend === "no"}
+                  onChange={this.handleInputChange}
+                />
                 No Stipend
-              </RadioButton>
-            </RadioGroup>
+              </label>
+            </div>
           </div>
           
           <button 
@@ -106,7 +107,5 @@ class AboutTheUserForm extends React.Component {
       </div>
     )
   }
-
 }
-
 export default AboutTheUserForm;
