@@ -1,22 +1,54 @@
 import React from 'react';
-import { yourpeopleRef } from '../firebase'
+import { yourpeopleRef, abouttripsRef } from '../firebase'
+import PersonInfoForm from './PersonInfoForm';
 
 class AboutYourPeopleForm extends React.Component {
   state = {
-    userId: '',
+    people: [
+      {userId: '',
+        name: '',
+        email: '',
+        phone: '',
+        section: '',
+        stipend: ''
+      }
+    ],    
     createdAt: new Date(),
-    name: '',
-    email: '',
-    phone: '',
-    section: '',
-    stipend: ''
+    trip: {people:{
+      adult: 0
+    }}
   }
 
-  handleInputChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
+
+
+  getTripData = async userId => {
+    try {
+      const trip = await abouttripsRef
+      .where('aboutTrip.userId', '==', userId)
+      .get()
+      console.log(trip)
+      this.setState({trip: trip.docs[0].data().aboutTrip})
+    } catch(error) {
+      console.log('Error getting trips', error)
+    }
   }
+
+  componentDidMount(){
+    this.getTripData(this.props.match.params.userId)
+  }
+
+  handleInputChange = (index, e) => {
+    console.log(index)
+    console.log(e)
+    this.setState({
+      people: [
+         ...this.state.people.slice(0,index),
+         Object.assign({}, this.state.people[index], {[e.target.name]: e.target.value}),
+         ...this.state.people.slice(index+1)
+      ]
+    });
+  }
+
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
@@ -29,54 +61,16 @@ class AboutYourPeopleForm extends React.Component {
         <div>
           <h1>Tell us about your people</h1>
         </div>
-        <form onSubmit={this.handleSubmit} className="form">
-          <div>
-            <input
-              className='about-input'
-              type='text'
-              name='name'
-              placeholder='First and Last Name'
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <div>
-            <input
-              className='about-input'
-              type='email'
-              name='email'
-              placeholder='Email'
-              onChange={this.handleInputChange}
-            />
-          </div>         
-          <div>
-            <input
-              className='about-input'
-              type='tel'
-              name='phone'
-              pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
-              placeholder='Phone Number'
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <div>
-          <input
-              className='about-input'
-              type='text'
-              name='section'
-              placeholder='Instrument Section'
-              onChange={this.handleInputChange}
-            />
-          </div>
+        
+        {Array(this.state.trip.people.adult).fill().map((x, index) => <PersonInfoForm index={index} handleInputChange={this.handleInputChange} />)}
           
-          
-          <button 
-            className='btn btn-primary'
-            type='submit' 
-            value='Submit'
-          >
-            Submit
-          </button>
-        </form>
+        <button 
+          className='btn btn-primary'
+          type='submit' 
+          value='Submit'
+        >
+          Submit
+        </button>
                 
       </div>
     )

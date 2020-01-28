@@ -13,11 +13,12 @@ class AboutTheUserForm extends React.Component {
     stipend: ''
   }
 
-  handleInputChange = (e) => {
+  handleInputChange = (index, e) => {
     this.setState({
       [e.target.name]: e.target.value
     })
   }
+  
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
