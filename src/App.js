@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import RegistrationForm from './components/RegistrationForm';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -6,11 +7,10 @@ import SignUpLogInForm from './components/SignUpLogInForm';
 import Dashboard from './components/Dashboard';
 import AuthProvider from './components/AuthContext';
 import Navbar from './components/Navbar';
-import HealthForm from './components/HealthForm';
-import ParkingForm from './components/ParkingForm';
 import AboutTheUserForm from './components/AboutTheUserForm';
 import AboutTheTripForm from './components/AboutTheTripForm';
 import AboutYourPeopleForm from './components/AboutYourPeopleForm';
+
 
 class App extends React.Component {
   render() {
@@ -31,18 +31,18 @@ class App extends React.Component {
                 path='/dashboard'
                 component={Dashboard}
               />
-              <Route 
+              {/* <Route 
                 path='/:userId/registration'
                 component={RegistrationForm}
-              />
-              <Route
+              /> */}
+              {/* <Route
                 path='/:userId/healthform'
                 component={HealthForm}
               />
               <Route
                 path='/:userId/parkingform'
                 component={ParkingForm}
-              />
+              /> */}
               <Route
                 path='/:userId/aboutyou'
                 component={AboutTheUserForm}

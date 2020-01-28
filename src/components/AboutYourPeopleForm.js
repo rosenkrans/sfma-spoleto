@@ -1,5 +1,5 @@
 import React from 'react';
-import { aboutusersRef } from '../firebase';
+import { yourpeopleRef } from '../firebase'
 
 class AboutYourPeopleForm extends React.Component {
   state = {
@@ -20,7 +20,7 @@ class AboutYourPeopleForm extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
-    const newAboutUser = await aboutusersRef.add({ aboutUser:{...this.state, userId: this.props.match.params.userId} })
+    const newYourPeople = await yourpeopleRef.add({ aboutUser:{...this.state, userId: this.props.match.params.userId} })
   }
 
   render() {
@@ -67,36 +67,10 @@ class AboutYourPeopleForm extends React.Component {
               onChange={this.handleInputChange}
             />
           </div>
-          <div>
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="stipend"
-                  value="yes"
-                  checked={this.state.stipend === "yes"}
-                  onChange={this.handleInputChange}
-                />
-                Apply Stipend
-              </label>
-            </div>
-​
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="stipend"
-                  value="no"
-                  checked={this.state.stipend === "no"}
-                  onChange={this.handleInputChange}
-                />
-                No Stipend
-              </label>
-            </div>
-          </div>
+          
           
           <button 
-            className='submit-button'
+            className='btn btn-primary'
             type='submit' 
             value='Submit'
           >

@@ -11,9 +11,9 @@ class Dashboard extends React.Component {
             
             <h1 className="dashboard-header">My Dashboard</h1>
             <div className="dashboard-links">
-              <Link className='dash-link' to={`${user.id}/registration`}>Register</Link>
-              <Link className='dash-link' to={`${user.id}/healthform`}>Health Info</Link>
-              <Link className='dash-link' to={`${user.id}/parkingform`}>Parking Info</Link>
+              <Link className='dash-link' to={`${user.id}/aboutyou`}>Register</Link>
+              <Link className='dash-link' to={`${user.id}/giginfo`}>Gig Info</Link>
+              <Link className='dash-link' to={`${user.id}/charlestoninfo`}>Charleston Info</Link>
             </div>
 
           </React.Fragment>

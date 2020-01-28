@@ -26,5 +26,6 @@ const healthsRef = db.collection('healths')
 const parkingsRef = db.collection('parkings')
 const aboutusersRef = db.collection('aboutusers')
 const abouttripsRef = db.collection('abouttrips')
+const yourpeopleRef = db.collection('yourpeople')
 
-export { registrationsRef, healthsRef, parkingsRef, aboutusersRef, abouttripsRef, firebaseAuth }
+export { registrationsRef, healthsRef, parkingsRef, aboutusersRef, abouttripsRef, yourpeopleRef, firebaseAuth }

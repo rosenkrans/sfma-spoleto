@@ -1,14 +1,16 @@
 import React from 'react';
 import { registrationsRef } from '../firebase';
+import PersonInfoForm from './PersonInfoForm';
 
 class RegistrationForm extends React.Component {
   state = {
     userId: '',
     createdAt: new Date(),
     name: '',
-    address: '',
+    email: '',
     phone: '',
-    email: '' 
+    section: '',
+    stipend: ''
   }
 
   handleInputChange = (e) => {
@@ -30,54 +32,16 @@ class RegistrationForm extends React.Component {
           <h1>Registration Form</h1>
         </div>
 
-        <form onSubmit={this.handleSubmit} className="form">
-          <div>
-            <input
-              className='reg-input'
-              type='text'
-              name='name'
-              placeholder='First and Last Name'
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <div>
-            <input
-              className='reg-input'
-              type='text'
-              name='address'
-              placeholder='Address'
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <div>
-            <input
-              className='reg-input'
-              type='tel'
-              name='phone'
-              pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
-              placeholder='Phone Number'
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <div>
-            <input
-              className='reg-input'
-              type='email'
-              name='email'
-              placeholder='Email'
-              onChange={this.handleInputChange}
-            />
-          </div>
+        <PersonInfoForm handleInputChange={this.handleInputChange}/>
           
           <button 
-            className='submit-button'
+            className='btn btn-primary'
             type='submit' 
             value='Submit'
           >
             Submit
           </button>
-        </form>
-        
+             
       </div>
     )
   }

@@ -2,6 +2,7 @@ import React from 'react';
 import { abouttripsRef } from '../firebase';
 import DatePicker from 'react-date-picker' 
 import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css'
 
 const options = [
   {
@@ -49,15 +50,15 @@ class AboutTheTripForm extends React.Component {
     checkIn: new Date(),
     checkOut: new Date(),
     rooms: {
-      typeA: '',
-      typeB: ''
+      typeA: 0,
+      typeB: 0
     },
     people: {
-      adult: '',
-      minor: ''
+      adult: 0,
+      minor: 0
     },
     parking: {
-      spot: ''
+      spot: 0
     }
   }
 
@@ -125,17 +126,19 @@ class AboutTheTripForm extends React.Component {
           </div>
 
           <div>
+            <label htmlFor="">Select Room Type A: $100/night</label>
             <Dropdown 
               className='trip-dropdown'
               options={options} 
               onChange={(option) => this._onSelect('rooms', 'typeA', option)}
               value={defaultOption} 
               name='typeA'
-              placeholder="Room Type A: $100/night" 
+              placeholder="Select Room Type A: $100/night" 
             />
             <p>{message} {this.state.rooms.typeA} typeA rooms</p>
           </div>
           <div>
+          <label htmlFor="">Room Type B: $200/night</label>
             <Dropdown 
               className='trip-dropdown'
               options={options} 
@@ -147,6 +150,7 @@ class AboutTheTripForm extends React.Component {
           </div>
 
           <div>
+          <label htmlFor="">Number of Adults</label>
             <Dropdown 
               className='trip-dropdown'
               options={options} 
@@ -157,6 +161,7 @@ class AboutTheTripForm extends React.Component {
             />
           </div>
           <div>
+            <label htmlFor="">Number of Minors</label>
             <Dropdown 
               className='trip-dropdown'
               options={options} 
@@ -168,6 +173,7 @@ class AboutTheTripForm extends React.Component {
           </div>
 
           <div>
+            <label htmlFor="">Number of Parking Spots</label>
             <Dropdown 
               className='trip-dropdown'
               options={options} 
@@ -179,7 +185,7 @@ class AboutTheTripForm extends React.Component {
           </div>
                    
           <button 
-            className='submit-button'
+            className='btn btn-primary'
             type='submit' 
             value='Submit'
           >
