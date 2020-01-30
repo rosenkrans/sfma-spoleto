@@ -4,7 +4,7 @@ import PersonInfoForm from './PersonInfoForm';
 
 class AboutYourPeopleForm extends React.Component {
   state = {
-    people: [
+    person: [
       {userId: '',
         name: '',
         email: '',
@@ -19,8 +19,6 @@ class AboutYourPeopleForm extends React.Component {
     }}
   }
 
-
-
   getTripData = async userId => {
     try {
       const trip = await abouttripsRef
@@ -33,6 +31,10 @@ class AboutYourPeopleForm extends React.Component {
     }
   }
 
+  // getPersonData = async userId => {
+
+  // }
+
   componentDidMount(){
     this.getTripData(this.props.match.params.userId)
   }
@@ -41,10 +43,10 @@ class AboutYourPeopleForm extends React.Component {
     console.log(index)
     console.log(e)
     this.setState({
-      people: [
-         ...this.state.people.slice(0,index),
-         Object.assign({}, this.state.people[index], {[e.target.name]: e.target.value}),
-         ...this.state.people.slice(index+1)
+      person: [
+         ...this.state.person.slice(0,index),
+         Object.assign({}, this.state.person[index], {[e.target.name]: e.target.value}),
+         ...this.state.person.slice(index+1)
       ]
     });
   }
@@ -62,9 +64,11 @@ class AboutYourPeopleForm extends React.Component {
           <h1>Tell us about your people</h1>
         </div>
         
+        {/* pass a prop of person to the person info form */}
         {Array(this.state.trip.people.adult).fill().map((x, index) => <PersonInfoForm index={index} handleInputChange={this.handleInputChange} />)}
           
         <button 
+          onClick={this.handleSubmit}
           className='btn btn-primary'
           type='submit' 
           value='Submit'
@@ -76,4 +80,5 @@ class AboutYourPeopleForm extends React.Component {
     )
   }
 }
+
 export default AboutYourPeopleForm;
