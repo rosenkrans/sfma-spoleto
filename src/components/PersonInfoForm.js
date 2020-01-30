@@ -14,7 +14,7 @@ class PersonInfoForm extends React.Component {
               id='name'
               type='text'
               name='name'
-              value={this.props.person.name}
+              // value={this.props.person.name}
               placeholder='First and Last Name'
               onChange={(e) => this.props.handleInputChange(this.props.index, e)}
             />
