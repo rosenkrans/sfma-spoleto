@@ -72,6 +72,9 @@ class AboutTheTripForm extends React.Component {
     e.preventDefault();
     console.log(this.props.match.params.userId)
     const newAboutTrip = await abouttripsRef.add({ aboutTrip:{...this.state, userId: this.props.match.params.userId} })
+    this.props.history.push({
+      pathname: `/${this.props.match.params.userId}/yourpeople`
+    })
   }
 
   handleDateChange(dateName, dateValue) {
@@ -147,6 +150,7 @@ class AboutTheTripForm extends React.Component {
               name='typeB'
               placeholder="Room Type B: $200/night" 
             />
+            <p>{message} {this.state.rooms.typeB} typeB rooms</p>
           </div>
 
           <div>
@@ -159,6 +163,7 @@ class AboutTheTripForm extends React.Component {
               name='adult'
               placeholder="Number of Adults" 
             />
+            <p>{message} {this.state.people.adult} Adults</p>
           </div>
           <div>
             <label htmlFor="">Number of Minors</label>
@@ -170,6 +175,7 @@ class AboutTheTripForm extends React.Component {
               name='minor'
               placeholder="Number of Minors" 
             />
+            <p>{message} {this.state.people.minor} Minors</p>
           </div>
 
           <div>
@@ -185,6 +191,7 @@ class AboutTheTripForm extends React.Component {
           </div>
                    
           <button 
+            onClick={this.handleSubmit}
             className='btn btn-primary'
             type='submit' 
             value='Submit'

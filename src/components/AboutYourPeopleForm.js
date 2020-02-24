@@ -15,11 +15,13 @@ class AboutYourPeopleForm extends React.Component {
     ],    
     createdAt: new Date(),
     trip: {people:{
-      adult: 0
+      adult: 0,
+      minor: 0
     }}
   }
 
   getTripData = async userId => {
+    console.log(userId)
     try {
       const trip = await abouttripsRef
       .where('aboutTrip.userId', '==', userId)
@@ -65,7 +67,23 @@ class AboutYourPeopleForm extends React.Component {
         </div>
         
         {/* pass a prop of person to the person info form */}
-        {Array(this.state.trip.people.adult).fill().map((x, index) => <PersonInfoForm index={index} handleInputChange={this.handleInputChange} />)}
+    {Array(this.state.trip.people.adult).fill().map((x, index) => { 
+      return(
+        <div>
+          <h2>Adult #{index+1}</h2>
+          <PersonInfoForm index={index} handleInputChange={this.handleInputChange} />
+        </div>
+      )
+    })}
+
+    {Array(this.state.trip.people.minor).fill().map((x, index) => { 
+      return(
+        <div>
+          <h2>Minor #{index+1}</h2>
+          <PersonInfoForm index={index} handleInputChange={this.handleInputChange} />
+        </div>
+      )
+    })}
           
         <button 
           onClick={this.handleSubmit}
