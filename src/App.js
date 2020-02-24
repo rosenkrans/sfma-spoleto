@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import RegistrationForm from './components/RegistrationForm';
+// import RegistrationForm from './components/RegistrationForm';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import SignUpLogInForm from './components/SignUpLogInForm';
 import Dashboard from './components/Dashboard';

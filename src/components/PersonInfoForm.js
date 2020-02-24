@@ -14,9 +14,9 @@ class PersonInfoForm extends React.Component {
               id='name'
               type='text'
               name='name'
-              // value={this.props.person.name}
+              value={this.props.formData.name}
               placeholder='First and Last Name'
-              onChange={(e) => this.props.handleInputChange(this.props.index, e)}
+              onChange={(e) => this.props.handleInputChange(this.props.personType, this.props.index, e)}
             />
           </div>
           <div className='form-group'>
@@ -26,8 +26,9 @@ class PersonInfoForm extends React.Component {
               id='email'
               type='email'
               name='email'
+              value={this.props.formData.email}
               placeholder='Email'
-              onChange={(e) => this.props.handleInputChange(this.props.index, e)}
+              onChange={(e) => this.props.handleInputChange(this.props.personType, this.props.index, e)}
             />
           </div>
           
@@ -39,8 +40,9 @@ class PersonInfoForm extends React.Component {
               type='tel'
               name='phone'
               pattern='[0-9]{3}-[0-9]{3}-[0-9]{4}'
+              value={this.props.formData.phone}
               placeholder='Phone Number'
-              onChange={(e) => this.props.handleInputChange(this.props.index, e)}
+              onChange={(e) => this.props.handleInputChange(this.props.personType, this.props.index, e)}
             />
           </div>
           <div className='form-group'>
@@ -50,8 +52,9 @@ class PersonInfoForm extends React.Component {
               id='section'
               type='text'
               name='section'
+              value={this.props.formData.section}
               placeholder='Instrument Section'
-              onChange={(e) => this.props.handleInputChange(this.props.index, e)}
+              onChange={(e) => this.props.handleInputChange(this.props.personType, this.props.index, e)}
             />
           </div>
 
@@ -63,7 +66,7 @@ class PersonInfoForm extends React.Component {
                   name="stipend"
                   value="yes"
                   // checked={this.state.stipend === "yes"}
-                  onChange={(e) => this.props.handleInputChange(this.props.index, e)}
+                  onChange={(e) => this.props.handleInputChange(this.props.personType, this.props.index, e)}
                 />
                 Apply Stipend
               </label>
@@ -76,7 +79,7 @@ class PersonInfoForm extends React.Component {
                   name="stipend"
                   value="no"
                   // checked={this.state.stipend === "no"}
-                  onChange={(e) => this.props.handleInputChange(this.props.index, e)}
+                  onChange={(e) => this.props.handleInputChange(this.props.personType, this.props.index, e)}
                 />
                 No Stipend
               </label>

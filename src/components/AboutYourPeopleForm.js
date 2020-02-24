@@ -1,10 +1,10 @@
 import React from 'react';
-import { yourpeopleRef, abouttripsRef } from '../firebase'
+import { yourpeopleRef, abouttripsRef, aboutusersRef } from '../firebase'
 import PersonInfoForm from './PersonInfoForm';
 
 class AboutYourPeopleForm extends React.Component {
   state = {
-    person: [
+    adults: [
       {userId: '',
         name: '',
         email: '',
@@ -13,6 +13,15 @@ class AboutYourPeopleForm extends React.Component {
         stipend: ''
       }
     ],    
+    minors: [
+      {userId: '',
+        name: '',
+        email: '',
+        phone: '',
+        section: '',
+        stipend: ''
+      }
+    ],
     createdAt: new Date(),
     trip: {people:{
       adult: 0,
@@ -33,22 +42,31 @@ class AboutYourPeopleForm extends React.Component {
     }
   }
 
-  // getPersonData = async userId => {
-
-  // }
+  getUserData = async userId => {
+    try{
+      const userOne = await aboutusersRef
+      .where('aboutUser.userId', '==', userId)
+      .get()
+      console.log(userOne)
+      this.setState({adults:[userOne.docs[0].data().aboutUser]})
+    } catch(error){
+      console.log('Error getting userOne', error)
+    }
+  }
 
   componentDidMount(){
     this.getTripData(this.props.match.params.userId)
+    this.getUserData(this.props.match.params.userId)
   }
 
-  handleInputChange = (index, e) => {
+  handleInputChange = (personType, index, e) => {
     console.log(index)
     console.log(e)
     this.setState({
-      person: [
-         ...this.state.person.slice(0,index),
-         Object.assign({}, this.state.person[index], {[e.target.name]: e.target.value}),
-         ...this.state.person.slice(index+1)
+      [personType]: [
+         ...this.state[personType].slice(0,index),
+         Object.assign({}, this.state[personType][index], {[e.target.name]: e.target.value}),
+         ...this.state[personType].slice(index+1)
       ]
     });
   }
@@ -56,7 +74,7 @@ class AboutYourPeopleForm extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
-    const newYourPeople = await yourpeopleRef.add({ aboutUser:{...this.state, userId: this.props.match.params.userId} })
+    await yourpeopleRef.add({ aboutUser:{adults: this.state.adults, minors: this.state.minors, userId: this.props.match.params.userId} })
   }
 
   render() {
@@ -69,18 +87,18 @@ class AboutYourPeopleForm extends React.Component {
         {/* pass a prop of person to the person info form */}
     {Array(this.state.trip.people.adult).fill().map((x, index) => { 
       return(
-        <div>
+        <div key={index}>
           <h2>Adult #{index+1}</h2>
-          <PersonInfoForm index={index} handleInputChange={this.handleInputChange} />
+          <PersonInfoForm personType="adults" formData={this.state.adults[index] || {}} index={index} handleInputChange={this.handleInputChange} />
         </div>
       )
     })}
 
     {Array(this.state.trip.people.minor).fill().map((x, index) => { 
       return(
-        <div>
+        <div key={index}>
           <h2>Minor #{index+1}</h2>
-          <PersonInfoForm index={index} handleInputChange={this.handleInputChange} />
+          <PersonInfoForm personType="minors" formData={this.state.minors[index] || {}} index={index} handleInputChange={this.handleInputChange} />
         </div>
       )
     })}

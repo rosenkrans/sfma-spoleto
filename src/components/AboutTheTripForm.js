@@ -71,7 +71,7 @@ class AboutTheTripForm extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
-    const newAboutTrip = await abouttripsRef.add({ aboutTrip:{...this.state, userId: this.props.match.params.userId} })
+    await abouttripsRef.add({ aboutTrip:{...this.state, userId: this.props.match.params.userId} })
     this.props.history.push({
       pathname: `/${this.props.match.params.userId}/yourpeople`
     })
@@ -109,7 +109,6 @@ class AboutTheTripForm extends React.Component {
             <p>Check-In Date</p>
             <DatePicker 
               className='trip-datepicker'
-              value={this.state.checkIn}
               name='checkIn'
               selected={this.state.checkIn}
               value={this.state.checkIn}
@@ -120,7 +119,6 @@ class AboutTheTripForm extends React.Component {
             <p>Check-Out Date</p>
             <DatePicker 
               className='trip-datepicker'
-              value={this.state.checkOut}
               name='checkOut'
               selected={this.state.checkOut}
               value={this.state.checkOut}
