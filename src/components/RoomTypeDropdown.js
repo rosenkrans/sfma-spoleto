@@ -13,7 +13,7 @@ const options = [
   }
 ]
 
-class SleepingArrangements extends React.Component {
+class RoomTypeDropdown extends React.Component {
   state = {
     userId: '',
     createdAt: new Date(),
@@ -45,7 +45,7 @@ class SleepingArrangements extends React.Component {
     const defaultOption = this.state.selected
     var message='You\'ve selected ';
     return (
-      <div className="sleeping-arrangements-form-wrapper">
+      <div className="room-type-dropdown-form-wrapper">
         
         <form className="form">
          
@@ -69,4 +69,4 @@ class SleepingArrangements extends React.Component {
 
 }
 
-export default SleepingArrangements;
+export default RoomTypeDropdown;
