@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import AboutTheUserForm from './components/AboutTheUserForm';
 import AboutTheTripForm from './components/AboutTheTripForm';
 import AboutYourPeopleForm from './components/AboutYourPeopleForm';
+import SleepingArrangements from './components/SleepingArrangements';
 
 
 class App extends React.Component {
@@ -54,6 +55,10 @@ class App extends React.Component {
               <Route
                 path='/:userId/yourpeople'
                 component={AboutYourPeopleForm}
+              />
+              <Route 
+                path='/:userId/sleepingarrangements'
+                component={SleepingArrangements}
               />
 
               {/* <Route component={PageNotFound} /> */}             

@@ -75,6 +75,9 @@ class AboutYourPeopleForm extends React.Component {
     e.preventDefault();
     console.log(this.props.match.params.userId)
     await yourpeopleRef.add({ aboutUser:{adults: this.state.adults, minors: this.state.minors, userId: this.props.match.params.userId} })
+    this.props.history.push({
+      pathname: `/${this.props.match.params.userId}/sleepingarrangements`
+    })
   }
 
   render() {
@@ -85,24 +88,24 @@ class AboutYourPeopleForm extends React.Component {
         </div>
         
         {/* pass a prop of person to the person info form */}
-    {Array(this.state.trip.people.adult).fill().map((x, index) => { 
-      return(
-        <div key={index}>
-          <h2>Adult #{index+1}</h2>
-          <PersonInfoForm personType="adults" formData={this.state.adults[index] || {}} index={index} handleInputChange={this.handleInputChange} />
-        </div>
-      )
-    })}
+        {Array(this.state.trip.people.adult).fill().map((x, index) => { 
+          return(
+            <div key={index}>
+              <h2>Adult #{index+1}</h2>
+              <PersonInfoForm personType="adults" formData={this.state.adults[index] || {}} index={index} handleInputChange={this.handleInputChange} />
+            </div>
+          )
+        })}
 
-    {Array(this.state.trip.people.minor).fill().map((x, index) => { 
-      return(
-        <div key={index}>
-          <h2>Minor #{index+1}</h2>
-          <PersonInfoForm personType="minors" formData={this.state.minors[index] || {}} index={index} handleInputChange={this.handleInputChange} />
-        </div>
-      )
-    })}
-          
+        {Array(this.state.trip.people.minor).fill().map((x, index) => { 
+          return(
+            <div key={index}>
+              <h2>Minor #{index+1}</h2>
+              <PersonInfoForm personType="minors" formData={this.state.minors[index] || {}} index={index} handleInputChange={this.handleInputChange} />
+            </div>
+          )
+        })}
+              
         <button 
           onClick={this.handleSubmit}
           className='btn btn-primary'
