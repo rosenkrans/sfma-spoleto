@@ -1,7 +1,7 @@
 import React from 'react';
 import { yourpeopleRef } from '../firebase';
 import RoomTypeDropdown from '../components/RoomTypeDropdown';
-import Dropdown from 'react-dropdown';
+// import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css'
 
 // const options = [
@@ -56,7 +56,7 @@ class SleepingArrangements extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
-    await yourpeopleRef.add({ aboutPeople:{...this.state, userId: this.props.match.params.userId} })
+    await sleepingarrangementsRef.add({ aboutPeople:{...this.state, userId: this.props.match.params.userId} })
     
   }
 
@@ -66,8 +66,8 @@ class SleepingArrangements extends React.Component {
   }
   
   render() {
-    const defaultOption = this.state.selected
-    var message='You\'ve selected ';
+    // const defaultOption = this.state.selected
+    // var message='You\'ve selected ';
     return (
       <div className="sleeping-arrangements-form-wrapper">
         <div>
@@ -77,7 +77,6 @@ class SleepingArrangements extends React.Component {
         <form onSubmit={this.handleSubmit} className="form">
 
           <div>
-          {/* <h6>Person Name</h6> */}
           {Array(this.state.people.personName).fill().map((x, index) => { 
             return(
               <div key={index}>
