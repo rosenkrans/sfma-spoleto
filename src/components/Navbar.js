@@ -2,7 +2,7 @@ import React from 'react';
 import { AuthConsumer } from './AuthContext';
 import {Link} from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = () => { 
   return(
     <AuthConsumer>
       {({user, logOut}) => (

@@ -8,7 +8,7 @@ class SignUpLogInForm extends React.Component {
   redirect = () => {
     this.props.history.push(`/dashboard`)
     // this.props.history.push(`/${userId}/dashboard`)
-  }
+  } 
 
   render() {
     return (

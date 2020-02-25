@@ -29,7 +29,7 @@ class SleepingArrangements extends React.Component {
         personName: ''
       }
     ]
-  }
+  } 
 
   // getPeopleData = async userId => {
   //   try{
