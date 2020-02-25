@@ -1,5 +1,5 @@
 import React from 'react';
-import { yourpeopleRef } from '../firebase';
+import { sleepingarrangementsRef } from '../firebase';
 import RoomTypeDropdown from '../components/RoomTypeDropdown';
 // import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css'
