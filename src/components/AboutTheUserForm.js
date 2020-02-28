@@ -35,7 +35,7 @@ class AboutTheUserForm extends React.Component {
           <h1>First, tell us about you</h1>
         </div>
 
-        <PersonInfoForm handleInputChange={this.handleInputChange} />
+        <PersonInfoForm formData={this.state} handleInputChange={this.handleInputChange} />
           
         <button 
           onClick={this.handleSubmit}

@@ -1,19 +1,8 @@
 import React from 'react';
-import { sleepingarrangementsRef } from '../firebase';
+import { sleepingarrangementsRef, yourpeopleRef, aboutusersRef } from '../firebase';
 import RoomTypeDropdown from '../components/RoomTypeDropdown';
 // import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css'
-
-// const options = [
-//   {
-//     label: 'Room Type A',
-//     value: 'typeA'
-//   },
-//   {
-//     label: 'Room Type B',
-//     value: 'typeB'
-//   }
-// ]
 
 class SleepingArrangements extends React.Component {
   state = {
@@ -25,27 +14,28 @@ class SleepingArrangements extends React.Component {
     },
     groupName: '',
     people: [
-      {
-        personName: ''
-      }
     ]
   } 
 
-  // getPeopleData = async userId => {
-  //   try{
-  //     const personData = await yourpeopleRef
-  //     .where('aboutUser.userId', '==', userId)
-  //     .get()
-  //     console.log(personData)
-  //     this.setState({people:[personName.docs[0].data().aboutUser]})
-  //   } catch(error){
-  //     console.log('Error getting personData', error)
-  //   }
-  // }
+  getPeopleData = async userId => {
+    try{
+      const personData = await yourpeopleRef
+      .where('aboutUser.userId', '==', userId)
+      .get()
+      console.log(personData)
+      const peopleNames = [
+        ...personData.docs[0].data().aboutUser.adults.map(person => ({name: person.name, roomType: ''})),
+        ...personData.docs[0].data().aboutUser.minors.map(person => ({name: person.name, roomType: ''}))
+      ]
+      this.setState({people: peopleNames})
+    } catch(error){
+      console.log('Error getting personData', error)
+    }
+  }
 
-  // componentDidMount(){
-  //   this.getPeopleData(this.props.match.params.userId)
-  // }
+  componentDidMount(){
+    this.getPeopleData(this.props.match.params.userId)
+  }
 
   handleInputChange = (e) => {
     this.setState({
@@ -56,7 +46,7 @@ class SleepingArrangements extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
-    await sleepingarrangementsRef.add({ aboutPeople:{...this.state, userId: this.props.match.params.userId} })
+    await sleepingarrangementsRef.add({ aboutPeople:{roomType: this.state.roomType, userId: this.props.match.params.userId} })
     
   }
 
@@ -66,8 +56,8 @@ class SleepingArrangements extends React.Component {
   }
   
   render() {
-    // const defaultOption = this.state.selected
-    // var message='You\'ve selected ';
+    const defaultOption = this.state.selected
+    var message='You\'ve selected ';
     return (
       <div className="sleeping-arrangements-form-wrapper">
         <div>
@@ -75,30 +65,14 @@ class SleepingArrangements extends React.Component {
         </div>
 
         <form onSubmit={this.handleSubmit} className="form">
-
-          <div>
-          {Array(this.state.people.personName).fill().map((x, index) => { 
-            return(
-              <div key={index}>
-                <h2>Person{index+1}</h2>
-          
+     
+          <div>           
+            {this.state.people.map(person => (
+              <div>
+                <h6>{person.name}</h6>
+                <RoomTypeDropdown />
               </div>
-            )
-          })}
-           
-          </div>
-          <div>
-            <h6>Person Name will show here</h6>
-            <RoomTypeDropdown />
-            {/* <Dropdown 
-              className='room-dropdown'
-              options={options} 
-              onChange={(option) => this._onSelect('rooms', 'typeB', option)}
-              value={defaultOption} 
-              name='typeB'
-              placeholder="Select Room Type" 
-            />
-            <p>{message}</p> */}
+              ))}          
           </div>
 
           <div>
