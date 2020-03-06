@@ -28,5 +28,6 @@ const aboutusersRef = db.collection('aboutusers')
 const abouttripsRef = db.collection('abouttrips')
 const yourpeopleRef = db.collection('yourpeople')
 const sleepingarrangementsRef = db.collection('sleepingarrangements')
+const shoppingcartRef = db.collection('shoppingcart')
 
-export { registrationsRef, healthsRef, parkingsRef, aboutusersRef, abouttripsRef, yourpeopleRef, sleepingarrangementsRef, firebaseAuth }
+export { registrationsRef, healthsRef, parkingsRef, aboutusersRef, abouttripsRef, yourpeopleRef, sleepingarrangementsRef, shoppingcartRef, firebaseAuth }

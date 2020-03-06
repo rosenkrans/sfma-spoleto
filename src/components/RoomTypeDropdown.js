@@ -18,7 +18,7 @@ const options = [
 class RoomTypeDropdown extends React.Component { 
   constructor(props){
     super(props);
-    console.log(props)
+    // console.log(props)
   }
   
   render() {
@@ -38,7 +38,7 @@ class RoomTypeDropdown extends React.Component {
               value={(this.props.roomType)} 
               id={'roomType' + this.props.personNum}
             />
-            {console.log('this.props under dropdown', this.props)}
+            {/* {console.log('this.props under dropdown', this.props)} */}
             
             <p>{message}</p>
             

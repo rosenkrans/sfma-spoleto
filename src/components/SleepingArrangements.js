@@ -21,9 +21,6 @@ class SleepingArrangements extends React.Component {
   
 
   handleRoomType(e, index) {
-    console.log('e value', e);
-    console.log('index', index);
-
     this.setState({['roomType' + index]: e.label}, () => console.log('this.state', this.state));
   }
 
@@ -59,20 +56,21 @@ class SleepingArrangements extends React.Component {
     console.log(this.props.match.params.userId)
     console.log('handle submit this.state', this.state)
     let myArray = [];
-    console.log('this.state', this.state);
     // await sleepingarrangementsRef.add({ aboutPeople:{roomType: this.state.roomType, groupName: this.state.groupName, userId: this.props.match.params.userId} })
     await sleepingarrangementsRef.add(this.state)
-    
+    this.props.history.push({
+      pathname: `/${this.props.match.params.userId}/shoppingcart`
+    })
   }
 
   _onSelect = (stateKey, option) => {
     console.log('You selected ', option)
     this.setState({[stateKey]: option.value})
-    console.log(option.value)
+    // console.log(option.value)
   }
 
   onGroupNameChange = (e) => {
-    console.log(e.target.value)
+    // console.log(e.target.value)
     this.setState({groupName: e.target.value})
   }
   
