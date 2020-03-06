@@ -5,17 +5,27 @@ import RoomTypeDropdown from '../components/RoomTypeDropdown';
 import 'react-dropdown/style.css'
 
 class SleepingArrangements extends React.Component {
-  state = {
-    userId: '',
-    createdAt: new Date(),
-    roomType: {
-      typeA: 'typeA',
-      typeB: 'typeB'
-    },
-    groupName: '',
-    people: [
-    ]
-  } 
+  constructor(props){
+
+    super(props);
+    this.state = {
+      userId: '',
+      createdAt: new Date(),
+      roomType: '',
+      groupName: '',
+      people: [
+      ]
+    } 
+    this.handleRoomType = this.handleRoomType.bind(this)
+  }
+  
+
+  handleRoomType(e, index) {
+    console.log('e value', e);
+    console.log('index', index);
+
+    this.setState({['roomType' + index]: e.label}, () => console.log('this.state', this.state));
+  }
 
   getPeopleData = async userId => {
     try{
@@ -35,6 +45,7 @@ class SleepingArrangements extends React.Component {
 
   componentDidMount(){
     this.getPeopleData(this.props.match.params.userId)
+    console.log('current state from roomType: ', this.state)
   }
 
   handleInputChange = (e) => {
@@ -46,13 +57,23 @@ class SleepingArrangements extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
-    await sleepingarrangementsRef.add({ aboutPeople:{roomType: this.state.roomType, userId: this.props.match.params.userId} })
+    console.log('handle submit this.state', this.state)
+    let myArray = [];
+    console.log('this.state', this.state);
+    // await sleepingarrangementsRef.add({ aboutPeople:{roomType: this.state.roomType, groupName: this.state.groupName, userId: this.props.match.params.userId} })
+    await sleepingarrangementsRef.add(this.state)
     
   }
 
-  _onSelect = (stateKey, objectKey, option) => {
+  _onSelect = (stateKey, option) => {
     console.log('You selected ', option)
-    this.setState({[stateKey]: {...this.state[stateKey], [objectKey]: option.value}})
+    this.setState({[stateKey]: option.value})
+    console.log(option.value)
+  }
+
+  onGroupNameChange = (e) => {
+    console.log(e.target.value)
+    this.setState({groupName: e.target.value})
   }
   
   render() {
@@ -67,17 +88,17 @@ class SleepingArrangements extends React.Component {
         <form onSubmit={this.handleSubmit} className="form">
      
           <div>           
-            {this.state.people.map(person => (
+            {this.state.people.map((person, index) => (
               <div>
                 <h6>{person.name}</h6>
-                <RoomTypeDropdown />
+                <RoomTypeDropdown personNum={index} handleRoomType={this.handleRoomType} roomType={this.state.roomType} />
               </div>
               ))}          
           </div>
 
           <div>
             <h6>Group Name (Optional)</h6>
-            <input type='text'/>
+            <input type='text' onChange={this.onGroupNameChange}/>
           </div>
          
           <button 

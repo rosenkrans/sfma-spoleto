@@ -3,6 +3,10 @@ import { aboutusersRef } from '../firebase';
 import PersonInfoForm from './PersonInfoForm';
 
 class AboutTheUserForm extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleInputChange=this.handleInputChange.bind(this)
+  }
   state = {
     userId: '',
     createdAt: new Date(),
@@ -13,9 +17,11 @@ class AboutTheUserForm extends React.Component {
     stipend: ''
   }
 
-  handleInputChange = (index, e) => {
+  handleInputChange(index, personType, e){ 
+    console.log(e.target)
     this.setState({
       [e.target.name]: e.target.value
+      
     })
   }
 
@@ -42,7 +48,7 @@ class AboutTheUserForm extends React.Component {
           className='btn btn-primary'
           type='submit' 
           value='Submit'
-        >
+        > 
           Submit
         </button>
       

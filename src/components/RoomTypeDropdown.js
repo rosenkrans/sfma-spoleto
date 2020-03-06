@@ -5,15 +5,21 @@ import 'react-dropdown/style.css'
 const options = [
   {
     label: 'Room Type A',
-    value: 'typeA'
+    value: 'typeA',
+    id: 'roomTypeA'
   },
   {
     label: 'Room Type B',
-    value: 'typeB'
+    value: 'typeB',
+    id: 'roomTypeB'
   }
 ]
 
-class RoomTypeDropdown extends React.Component {
+class RoomTypeDropdown extends React.Component { 
+  constructor(props){
+    super(props);
+    console.log(props)
+  }
   
   render() {
     // const defaultOption = this.state.selected
@@ -27,14 +33,17 @@ class RoomTypeDropdown extends React.Component {
             <Dropdown 
               className='room-dropdown'
               options={options} 
-              onChange={(option) => this._onSelect('rooms', 'typeB', option)}
-              value={this.props.roomType} 
-              name='typeB'
+              onChange={(e) => this.props.handleRoomType(e, this.props.personNum)}
               placeholder="Select Room Type" 
+              value={(this.props.roomType)} 
+              id={'roomType' + this.props.personNum}
             />
+            {console.log('this.props under dropdown', this.props)}
+            
             <p>{message}</p>
+            
           </div>
-
+          
         </form>
                 
       </div>
