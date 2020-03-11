@@ -1,51 +1,52 @@
 import React from 'react';
-import { sleepingarrangementsRef, yourpeopleRef, aboutusersRef, shoppingcartRef } from '../firebase';
+import { abouttripsRef, shoppingcartRef } from '../firebase';
 
 import 'react-dropdown/style.css'
 
 class ShoppingCart extends React.Component {
-  // constructor(props){
 
-  //   super(props);
-  //   this.state = {
-  //     userId: '',
-  //     createdAt: new Date(),
-  //     roomType: '',
-  //     groupName: '',
-  //     people: [
-  //     ]
-  //   } 
-  //   this.handleRoomType = this.handleRoomType.bind(this)
-  // }
+    state = {
+      userId: '',
+      createdAt: new Date(),
+      // room: {rooms:{
+      //   typeA: 0,
+      //   typeB: 0
+      // }},
+      // parkings: {parking: {
+      //   spot: 0
+      // }}
+      roomTypeA: 0,
+      roomTypeB: 0, 
+      parking: 0
+    } 
 
-  // componentDidMount(){
-  //   this.getPeopleData(this.props.match.params.userId)
-    
-  // }
-
-  // getCartData = async userId => {
-  //   try{
-  //     const cartData = await yourpeopleRef
-  //     .where('aboutUser.userId', '==', userId)
-  //     .get()
-  //     console.log(personData)
-  //     const peopleNames = [
-  //       ...personData.docs[0].data().aboutUser.adults.map(person => ({name: person.name, roomType: ''})),
-  //       ...personData.docs[0].data().aboutUser.minors.map(person => ({name: person.name, roomType: ''}))
-  //     ]
-  //     this.setState({people: peopleNames})
-  //   } catch(error){
-  //     console.log('Error getting personData', error)
-  //   }
-  // }
-
-  handleInputChange = (e) => {
-    
+  getTripCartData = async userId => {
+    try{
+      const tripData = await abouttripsRef
+      .where('aboutTrip.userId', '==', userId)
+      .get()
+      console.log(tripData)     
+      this.setState({roomTypeA: tripData.docs[0].data().aboutTrip.rooms.typeA})
+      // console.log('room A is: ', roomTypeA)
+      // this.setState({roomTypeB: tripData.docs.data()})
+      // console.log('room B is: ', roomTypeB)
+      // this.setState({parking: tripData.docs.data()})
+      // console.log('parking spots: ', parking)
+    } catch(error){
+      console.log('Error getting room or parking', error)
+    }
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault();
+  componentDidMount(){
+    this.getTripCartData(this.props.match.params.userId)
+  }
+
+  // handleInputChange = (e) => {
     
+  // }
+
+  handleSubmit = async (e) => {
+    e.preventDefault();   
     await shoppingcartRef.add(this.state)
     
   }
@@ -65,8 +66,8 @@ class ShoppingCart extends React.Component {
           </div>
 
           <div>
-            <p>Number of Type A Rooms: X $__</p>
-            <p>Number of Type B Rooms: X $__</p>
+            <p>Number of Rooms: X $__</p>
+            <p>Number of Nights: X $__</p>
             <p>Number of Parking Spots: X $__</p>
             <p>Here is your total: $__</p>
           </div>

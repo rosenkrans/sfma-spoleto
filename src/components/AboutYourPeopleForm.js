@@ -30,7 +30,7 @@ class AboutYourPeopleForm extends React.Component {
   }
 
   getTripData = async userId => {
-    console.log(userId)
+    // console.log(userId)
     try {
       const trip = await abouttripsRef
       .where('aboutTrip.userId', '==', userId)

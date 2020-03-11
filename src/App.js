@@ -12,6 +12,7 @@ import AboutTheTripForm from './components/AboutTheTripForm';
 import AboutYourPeopleForm from './components/AboutYourPeopleForm';
 import SleepingArrangements from './components/SleepingArrangements';
 import ShoppingCart from './components/ShoppingCart';
+import Forms from './components/Forms'
 
 
 class App extends React.Component {
@@ -64,6 +65,10 @@ class App extends React.Component {
               <Route
               path='/:userId/shoppingcart'
               component={ShoppingCart}
+              />
+              <Route
+              path='/:userId/forms'
+              component={Forms}
               />
 
               {/* <Route component={PageNotFound} /> */}             

@@ -1,7 +1,6 @@
 import React from 'react';
-import { sleepingarrangementsRef, yourpeopleRef, aboutusersRef } from '../firebase';
+import { sleepingarrangementsRef, yourpeopleRef, } from '../firebase';
 import RoomTypeDropdown from '../components/RoomTypeDropdown';
-// import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css'
 
 class SleepingArrangements extends React.Component {
