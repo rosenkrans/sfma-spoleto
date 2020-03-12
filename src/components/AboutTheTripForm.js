@@ -127,7 +127,7 @@ class AboutTheTripForm extends React.Component {
           </div>
 
           <div>
-            <label htmlFor="">Select Room Type A: $100/night</label>
+            {/* <label htmlFor="">Select Room Type A: $100/night</label> */}
             <Dropdown 
               className='trip-dropdown'
               options={options} 
@@ -138,7 +138,7 @@ class AboutTheTripForm extends React.Component {
             />
             <p>{message} {this.state.rooms.typeA} typeA rooms</p>
           </div>
-          <div>
+          {/* <div>
           <label htmlFor="">Room Type B: $200/night</label>
             <Dropdown 
               className='trip-dropdown'
@@ -149,10 +149,10 @@ class AboutTheTripForm extends React.Component {
               placeholder="Room Type B: $200/night" 
             />
             <p>{message} {this.state.rooms.typeB} typeB rooms</p>
-          </div>
+          </div> */}
 
           <div>
-          <label htmlFor="">Number of Adults</label>
+          {/* <label htmlFor="">Number of Adults</label> */}
             <Dropdown 
               className='trip-dropdown'
               options={options} 
@@ -164,7 +164,7 @@ class AboutTheTripForm extends React.Component {
             <p>{message} {this.state.people.adult} Adults</p>
           </div>
           <div>
-            <label htmlFor="">Number of Minors</label>
+            {/* <label htmlFor="">Number of Minors</label> */}
             <Dropdown 
               className='trip-dropdown'
               options={options} 
@@ -177,7 +177,7 @@ class AboutTheTripForm extends React.Component {
           </div>
 
           <div>
-            <label htmlFor="">Number of Parking Spots</label>
+            {/* <label htmlFor="">Number of Parking Spots</label> */}
             <Dropdown 
               className='trip-dropdown'
               options={options} 
@@ -186,6 +186,7 @@ class AboutTheTripForm extends React.Component {
               name='parking'
               placeholder="Number of Parking Spots" 
             />
+            <p>{message} {this.state.parking.spot} Parking Spots</p>
           </div>
                    
           <button 

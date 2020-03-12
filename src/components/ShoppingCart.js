@@ -8,16 +8,10 @@ class ShoppingCart extends React.Component {
     state = {
       userId: '',
       createdAt: new Date(),
-      // room: {rooms:{
-      //   typeA: 0,
-      //   typeB: 0
-      // }},
-      // parkings: {parking: {
-      //   spot: 0
-      // }}
+      nights: 0,
       roomTypeA: 0,
-      roomTypeB: 0, 
-      parking: 0
+      parking: 0, 
+      total: 0
     } 
 
   getTripCartData = async userId => {
