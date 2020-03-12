@@ -27,7 +27,7 @@ class ShoppingCart extends React.Component {
         nights: (data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400,
         rooms: data.aboutTrip.rooms,
         parking: data.aboutTrip.parking.spot,
-        total: ((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400)       
+        total: (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400)) - (this.state.stipend)      
       })
       // console.log('parking spots: ', parking)
     } catch(error){
@@ -53,8 +53,8 @@ class ShoppingCart extends React.Component {
   }
 
   componentDidMount(){
-    this.getTripCartData(this.props.match.params.userId)
     this.getStipendData(this.props.match.params.userId)
+    this.getTripCartData(this.props.match.params.userId)   
   }
 
   handleSubmit = async (e) => {
