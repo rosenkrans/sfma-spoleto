@@ -18,17 +18,17 @@ class SignUpLogInForm extends React.Component {
             {!user.id ? (
               <div className='sign-up-wrapper'>
                 <p className='main-page-p'>
-                  For over 30-ish years, the SFMA invades Charleston South Carolina for a wild weekend filled with three different performances at Spoleto, one of the worlds largest arts and culture events. This year is no different! Memorial day weekend Friday, May 26 through Monday, May 29, 2020 Seed and Feed Community gone Spoleto in the way only Abominable‘s know best. On Saturday, May 27, we will perform at the children’s Festival in the middle of piccolo Spoleto. That night, on the steps of the United States customhouse, we perform in front of a huge crowd of people gathered for the pajama March (yes, you hear right, pajamas). The following day, Sunday, May 28, we celebrate memorial day with our patriotic parade on the steps of the custom house.
+                  For over 30 years, the SFMA invades Charleston, South Carolina for a wild weekend filled with three different performances at Piccolo Spoleto, one of the world's largest arts and culture events. This year is no different! Memorial Day weekend Friday, May 22nd thru Monday May 25th, 2020 Seed & Feed will take on Spoleto in the way only Abominables know best. On Saturday, May 23rd, we will perform at the Children’s Festival in the middle of Piccolo Spoleto. That night, on the steps of the United States Custom House, we perform in front of a huge crowd people gathered for the Pajama March (yes, you hear right, pajamas). The following day, Sunday, May 24th, we celebrate Memorial Day with our Patriotic Parade on the steps of the Custom House. 
                 </p>
                 <p className='main-page-p'>
                   It’s a jam packed, incredible weekend no red blooded abominable will want to miss!
                 </p>
                 <p className='main-page-p'>
-                  For Spoleto SFM a has a great housing deal with the days inn on meeting Street in the college of Charleston in downtown Charleston.
+                  For Spoleto S&FMA has a great housing deal with the College of Charleston in downtown Charleston.
                 </p>
                 <p className='main-page-p'>
-                  For the days inn: <br/>
-                  Each room has two double beds (comfortably sleep two people in each). There are some rooms with king size beds. Please note if you would like to be assigned one of these. All rooms are now non-smoking. (Check in May 26 Dash check out May 29)
+                  We're staying at George Street Dorms (dorm subject to change): <br/>
+                  Each apartment has three to five fully furnished single-occupancy bedrooms with full-size beds, a fully furnished living room, a kitchen, and either one or two bathrooms. All units overlook an open courtyard. Each apartment has a full kitchen with a stove, full-size refrigerator, microwave, cabinets, sink with garbage disposal, and dishwasher. LINENS ARE NOT furnished, I repeat, you need to bring your own Full Size sheet. (Check in May 22 - Check out May 25)
                 </p>
                 <p className='main-page-p'>
                   Cost per room $720 (with one car, additional cars are subject to $14 a night charge) <br/>

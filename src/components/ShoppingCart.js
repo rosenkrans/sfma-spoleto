@@ -47,8 +47,10 @@ class ShoppingCart extends React.Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();   
-    await shoppingcartRef.add(this.state)
-    
+    // await shoppingcartRef.add(this.state)
+    this.props.history.push({
+      pathname: `/${this.props.match.params.userId}/forms`
+    })
   }
  
   render() {
