@@ -31,19 +31,17 @@ class SignUpLogInForm extends React.Component {
                   Each apartment has three to five fully furnished single-occupancy bedrooms with full-size beds, a fully furnished living room, a kitchen, and either one or two bathrooms. All units overlook an open courtyard. Each apartment has a full kitchen with a stove, full-size refrigerator, microwave, cabinets, sink with garbage disposal, and dishwasher. LINENS ARE NOT furnished, I repeat, you need to bring your own Full Size sheet. (Check in May 22 - Check out May 25)
                 </p>
                 <p className='main-page-p'>
-                  Cost per room $720 (with one car, additional cars are subject to $14 a night charge) <br/>
-                  $720 total if you’re not sharing the room <br/>
-                  $360 per person if two people sharing <br/>
-                  $240 per person if three people sharing <br/>
-                  $180 per person if four people sharing <br/>
+                  Cost per room for the weekend is $187--bed can be shared but payment is in full per room. <br/>
+                  Cost per car for parking one car for the weekend is $37--covers Friday to Monday<br/>
+                  The combo room + car is $224 for the whole weekend. What a steal!<br/>                 
                 </p>
                 <p className='main-page-p'>
-                  Amenities including hotel room: newly renovated rooms, free parking (one spot per guest room), free Wi-Fi, outdoor pool, coffee maker, microwave, fridge, new bathrooms, towels, bedding, air-conditioning, and outdoor balcony.
+                  When you sign up you'll be able to specify who's paying for your reservation as well as the number of cars etc.
                 </p>
                 <p className='main-page-p'>
-                  For the college of Charleston Dash George Street dorms (dorm subject to change):
+                  SUBSIDY - If you have completed 3 private gigs and 3 community gigs this year you qualify for a $70 subsidy. The 2020 subsidy has been set at $70. For details on performances please go here - http://bit.ly/2020GigsByStatus. 
                 </p>
-                <p className='main-page-p'>
+                {/* <p className='main-page-p'>
                   Each apartment has 3 to 5 fully furnished single occupancy bedrooms with full-size beds, a fully furnished living room, kitchen, and either one or two bathrooms. All units overlook an open courtyard. Each apartment has a full kitchen with a stove, full-size refrigerator, microwave, cabinets, sync with garbage disposal, and dishwasher. Linens are not furnished. (Check in May 26 Dash check out May 29)
                 </p>
                 <p className='main-page-p'>
@@ -51,13 +49,14 @@ class SignUpLogInForm extends React.Component {
                 </p>
                 <p className='main-page-p'>
                   Subsidy – if you have completed three private gigs and three community gigs this year you qualify for a $60 subsidy.
-                </p>
+                </p> */}
                 <p className='main-page-p'>
-                  Fill out the form below to reserve your room. We will be following up with you shortly to collect payments!
+                  Thanks!! <br/>
+                  Your Spoleto 2020 Czars
                 </p>
-                <p className='main-page-p'>
+                {/* <p className='main-page-p'>
                   Are you ready to sign up?
-                </p>
+                </p> */}
                 <h2>Sign In or Create Account</h2>
                 {authMessage ? <span>{authMessage}</span> : ''}
                 <form className='sign-up-form'>
