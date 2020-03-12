@@ -1,5 +1,5 @@
 import React from 'react';
-import { abouttripsRef, shoppingcartRef } from '../firebase';
+import { abouttripsRef, shoppingcartRef, yourpeopleRef } from '../firebase';
 
 import 'react-dropdown/style.css'
 
@@ -15,25 +15,19 @@ class ShoppingCart extends React.Component {
       stipend: 0
     } 
 
-  getTripCartData = async userId => {
-    
+  getTripCartData = async userId => {    
     try{
       const tripData = await abouttripsRef
       .where('aboutTrip.userId', '==', userId)
       .get()
       console.log('tripData', tripData.docs[0].data())   
       const data = tripData.docs[0].data()  
-      // console.log('abouttrips', aboutTrip)
-      // this.setState({roomTypeA: tripData.docs[0].data().aboutTrip.rooms.typeA})
-      // console.log('room A is: ', roomTypeA)
       
-      // this.setState({parking: tripData.docs.data()})
       this.setState({
         nights: (data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400,
         rooms: data.aboutTrip.rooms,
         parking: data.aboutTrip.parking.spot,
-        total: ((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400)
-        
+        total: ((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400)       
       })
       // console.log('parking spots: ', parking)
     } catch(error){
@@ -41,26 +35,27 @@ class ShoppingCart extends React.Component {
     }
   }
 
-  // getTripData = async userId => {
-  //   // console.log(userId)
-  //   try {
-  //     const trip = await abouttripsRef
-  //     .where('aboutTrip.userId', '==', userId)
-  //     .get()
-  //     console.log(trip)
-  //     this.setState({trip: trip.docs[0].data().aboutTrip})
-  //   } catch(error) {
-  //     console.log('Error getting trips', error)
-  //   }
-  // }
+  getStipendData = async userId => {
+    try{
+      const stipendData = await yourpeopleRef
+      .where('aboutUser.userId', '==', userId)
+      .get()
+      const stipendInfo = stipendData.docs[0].data()
+      console.log('stipend data', stipendInfo.aboutUser.adults)
+      const amountStipend = stipendInfo.aboutUser.adults.reduce((acc, adult) => adult.stipend ? acc + 70 : acc, 0)
+      console.log("stipend money", amountStipend)
+      this.setState({
+        stipend: amountStipend
+      })
+    } catch(error){
+      console.log('Error getting stipend', error)
+    }
+  }
 
   componentDidMount(){
     this.getTripCartData(this.props.match.params.userId)
+    this.getStipendData(this.props.match.params.userId)
   }
-
-  // handleInputChange = (e) => {
-    
-  // }
 
   handleSubmit = async (e) => {
     e.preventDefault();   
@@ -70,8 +65,6 @@ class ShoppingCart extends React.Component {
     })
   }
 
-  
- 
   render() {
     
     return (
