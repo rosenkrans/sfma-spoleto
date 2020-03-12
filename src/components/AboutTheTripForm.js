@@ -49,10 +49,7 @@ class AboutTheTripForm extends React.Component {
     createdAt: new Date(),
     checkIn: new Date(),
     checkOut: new Date(),
-    rooms: {
-      typeA: 0,
-      typeB: 0
-    },
+    rooms: 0,
     people: {
       adult: 0,
       minor: 0
@@ -94,6 +91,14 @@ class AboutTheTripForm extends React.Component {
     console.log('You selected ', option)
     this.setState({[stateKey]: {...this.state[stateKey], [objectKey]: option.value}})
   }
+
+  _onSelectRooms = (stateKey, objectKey, option) => {
+    console.log('statekey', stateKey)
+    console.log('objectKey', objectKey)
+    console.log('option', option)
+    this.setState({rooms: objectKey.value}, ()=>{console.log('state: ', this.state)})
+    
+  }
   
   render() {
     const defaultOption = this.state.selected
@@ -131,12 +136,12 @@ class AboutTheTripForm extends React.Component {
             <Dropdown 
               className='trip-dropdown'
               options={options} 
-              onChange={(option) => this._onSelect('rooms', 'typeA', option)}
+              onChange={(option) => this._onSelectRooms('rooms', option)}
               value={defaultOption} 
-              name='typeA'
-              placeholder="Select Room Type A: $100/night" 
+              name='rooms'
+              placeholder="Select Number of Rooms: $100/night" 
             />
-            <p>{message} {this.state.rooms.typeA} typeA rooms</p>
+            <p>{message} {this.state.rooms} rooms</p>
           </div>
           {/* <div>
           <label htmlFor="">Room Type B: $200/night</label>

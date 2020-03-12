@@ -1,7 +1,7 @@
 import React from 'react';
 import { yourpeopleRef, abouttripsRef, aboutusersRef } from '../firebase'
 import PersonInfoForm from './PersonInfoForm';
-// import { Link } from 'react';
+import { Link } from 'react-router-dom';
 
 class Forms extends React.Component {
   state = {
@@ -69,8 +69,9 @@ class Forms extends React.Component {
         </div>
 
         <div>
-          <p>http://bit.ly/Spoleto2020Forms</p>
-          {/* <Link>http://bit.ly/Spoleto2020Forms</Link> */}
+          {/* <p>http://bit.ly/Spoleto2020Forms</p> */}
+          <a target = '_blank' href='http://bit.ly/Spoleto2020Forms'>GO TO FORMS</a>
+          {/* <Link to='http://bit.ly/Spoleto2020Forms'><button>GO TO FORMS</button></Link> */}
         </div>
              
         <button 

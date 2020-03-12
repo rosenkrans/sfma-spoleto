@@ -3,7 +3,7 @@ import { yourpeopleRef, abouttripsRef, aboutusersRef } from '../firebase'
 import PersonInfoForm from './PersonInfoForm';
 
 class AboutYourPeopleForm extends React.Component {
-  state = {
+  state = { 
     adults: [
       {userId: '',
         name: '',

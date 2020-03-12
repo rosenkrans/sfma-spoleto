@@ -14,7 +14,7 @@ class SleepingArrangements extends React.Component {
       groupName: '',
       people: [
       ]
-    } 
+    }
     this.handleRoomType = this.handleRoomType.bind(this)
   }
   
@@ -28,12 +28,12 @@ class SleepingArrangements extends React.Component {
       const personData = await yourpeopleRef
       .where('aboutUser.userId', '==', userId)
       .get()
-      console.log(personData)
+      console.log('personData:', personData)
       const peopleNames = [
         ...personData.docs[0].data().aboutUser.adults.map(person => ({name: person.name, roomType: ''})),
         ...personData.docs[0].data().aboutUser.minors.map(person => ({name: person.name, roomType: ''}))
       ]
-      this.setState({people: peopleNames})
+      this.setState({people: peopleNames, userId: userId})
     } catch(error){
       console.log('Error getting personData', error)
     }
@@ -42,6 +42,7 @@ class SleepingArrangements extends React.Component {
   componentDidMount(){
     this.getPeopleData(this.props.match.params.userId)
     console.log('current state from roomType: ', this.state)
+    console.log('props', this.props)
   }
 
   handleInputChange = (e) => {
