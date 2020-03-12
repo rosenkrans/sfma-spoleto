@@ -56,7 +56,7 @@ class AboutYourPeopleForm extends React.Component {
 
   componentDidMount(){
     this.getTripData(this.props.match.params.userId)
-    this.getUserData(this.props.match.params.userId)
+    this.getUserData(this.props.match.params.userId) 
   }
 
   handleInputChange = (personType, index, e) => {

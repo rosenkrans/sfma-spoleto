@@ -28,7 +28,7 @@ class AboutTheUserForm extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log(this.props.match.params.userId)
-    await aboutusersRef.add({ aboutUser:{...this.state, userId: this.props.match.params.userId} })
+    await aboutusersRef.add({ aboutUser:{...this.state, userId: this.props.match.params.userId}, stipend: this.props.match.params.stipend })
     this.props.history.push({
       pathname: `/${this.props.match.params.userId}/abouttrip`
     })
