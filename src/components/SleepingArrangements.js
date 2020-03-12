@@ -84,7 +84,7 @@ class SleepingArrangements extends React.Component {
 
         <form onSubmit={this.handleSubmit} className="form">
      
-          <div>           
+          <div>          
             {this.state.people.map((person, index) => (
               <div>
                 <h6>{person.name}</h6>
