@@ -47,8 +47,9 @@ class AboutYourPeopleForm extends React.Component {
       const userOne = await aboutusersRef
       .where('aboutUser.userId', '==', userId)
       .get()
-      console.log(userOne)
-      this.setState({adults:[userOne.docs[0].data().aboutUser]})
+      console.log('user one', userOne)
+      this.setState({adults:[userOne.docs[0].data().aboutUser], stipend: userOne.docs[0].data().aboutUser.stipend})
+      console.log('user one data', userOne.docs[0].data().aboutUser)
     } catch(error){
       console.log('Error getting userOne', error)
     }

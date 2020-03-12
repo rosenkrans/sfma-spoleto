@@ -16,8 +16,7 @@ class SleepingArrangements extends React.Component {
       ]
     }
     this.handleRoomType = this.handleRoomType.bind(this)
-  }
-  
+  } 
 
   handleRoomType(e, index) {
     this.setState({['roomType' + index]: e.label}, () => console.log('this.state', this.state));
