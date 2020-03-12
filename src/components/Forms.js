@@ -6,51 +6,8 @@ import { Link } from 'react-router-dom';
 class Forms extends React.Component {
   state = {
     userId: '',
-    createdAt: new Date(),
-    
+    createdAt: new Date()   
   }
-
-  // getTripData = async userId => {
-  //   // console.log(userId)
-  //   try {
-  //     const trip = await abouttripsRef
-  //     .where('aboutTrip.userId', '==', userId)
-  //     .get()
-  //     console.log(trip)
-  //     this.setState({trip: trip.docs[0].data().aboutTrip})
-  //   } catch(error) {
-  //     console.log('Error getting trips', error)
-  //   }
-  // }
-
-  // getUserData = async userId => {
-  //   try{
-  //     const userOne = await aboutusersRef
-  //     .where('aboutUser.userId', '==', userId)
-  //     .get()
-  //     console.log(userOne)
-  //     this.setState({adults:[userOne.docs[0].data().aboutUser]})
-  //   } catch(error){
-  //     console.log('Error getting userOne', error)
-  //   }
-  // }
-
-  // componentDidMount(){
-  //   this.getTripData(this.props.match.params.userId)
-  //   this.getUserData(this.props.match.params.userId)
-  // }
-
-  // handleInputChange = (personType, index, e) => {
-  //   console.log(index)
-  //   console.log(e)
-  //   this.setState({
-  //     [personType]: [
-  //        ...this.state[personType].slice(0,index),
-  //        Object.assign({}, this.state[personType][index], {[e.target.name]: e.target.value}),
-  //        ...this.state[personType].slice(index+1)
-  //     ]
-  //   });
-  // }
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,23 +22,23 @@ class Forms extends React.Component {
     return (
       <div className="forms-form-wrapper">
         <div>
-          <h1>Click the link below to fill out Health, Terms, and Parking forms</h1>
+          <h1>Don't forget to fill out forms!</h1>
+          <h3>Click the below link for Health, Terms, and Parking forms</h3>
+          <h3>Fill out one form for each person in your registration</h3>
         </div>
 
         <div>
-          {/* <p>http://bit.ly/Spoleto2020Forms</p> */}
-          <a target = '_blank' href='http://bit.ly/Spoleto2020Forms'>GO TO FORMS</a>
-          {/* <Link to='http://bit.ly/Spoleto2020Forms'><button>GO TO FORMS</button></Link> */}
+          <a target = '_blank' href='http://bit.ly/Spoleto2020Forms'><button>GO TO FORMS</button></a>
         </div>
              
-        <button 
+        {/* <button 
           onClick={this.handleSubmit}
           className='btn btn-primary'
           type='submit' 
           value='Submit'
         >
-          Submit
-        </button>
+          Click here for forms
+        </button> */}
                 
       </div>
     )

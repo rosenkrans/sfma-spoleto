@@ -113,7 +113,7 @@ class AboutYourPeopleForm extends React.Component {
           type='submit' 
           value='Submit'
         >
-          Submit
+          NEXT
         </button>
                 
       </div>

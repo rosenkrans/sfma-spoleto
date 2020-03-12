@@ -94,7 +94,7 @@ class ShoppingCart extends React.Component {
             type='submit' 
             value='Submit'
           >
-            Submit
+            SUBMIT
           </button>
         </form>
                 
