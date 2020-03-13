@@ -24,7 +24,7 @@ class ShoppingCart extends React.Component {
       const data = tripData.docs[0].data()  
       
       this.setState({
-        nights: (data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400,
+        nights: ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1,
         rooms: data.aboutTrip.rooms,
         parking: data.aboutTrip.parking.spot,
         total: (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400)) - (this.state.stipend)      
@@ -59,7 +59,7 @@ class ShoppingCart extends React.Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();   
-    // await shoppingcartRef.add(this.state)
+    await shoppingcartRef.add({ cartData:{state: this.state, userId: this.props.match.params.userId} })
     this.props.history.push({
       pathname: `/${this.props.match.params.userId}/forms`
     })

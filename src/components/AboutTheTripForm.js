@@ -117,6 +117,8 @@ class AboutTheTripForm extends React.Component {
               name='checkIn'
               selected={this.state.checkIn}
               value={this.state.checkIn}
+              minDate={new Date('May 22 2020')}
+              maxDate={new Date('May 26 2020')}
               onChange={date => this.handleDateChange('checkIn', date)}
             />
           </div>
@@ -127,6 +129,8 @@ class AboutTheTripForm extends React.Component {
               name='checkOut'
               selected={this.state.checkOut}
               value={this.state.checkOut}
+              minDate={new Date('May 22 2020')}
+              maxDate={new Date('May 26 2020')}
               onChange={date => this.handleDateChange('checkOut', date)}
             />
           </div>

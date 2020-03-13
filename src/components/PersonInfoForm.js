@@ -3,6 +3,7 @@ import React from 'react';
 class PersonInfoForm extends React.Component {
 
   render() {
+    console.log(`Person ${this.props.index}: Stipend: ${this.props.formData.stipend}`)
     return (
       <div className="person-info-form-wrapper">
 
@@ -65,7 +66,7 @@ class PersonInfoForm extends React.Component {
                   type="radio"
                   name="stipend"
                   value="yes"
-                  // checked={this.state.stipend === "yes"}
+                  checked={this.props.formData.stipend === "yes"}
                   onChange={(e) => this.props.handleInputChange(this.props.personType, this.props.index, e)}
                 />
                 Apply Stipend
@@ -78,7 +79,7 @@ class PersonInfoForm extends React.Component {
                   type="radio"
                   name="stipend"
                   value="no"
-                  // checked={this.state.stipend === "no"}
+                  checked={this.props.formData.stipend === "no"}
                   onChange={(e) => this.props.handleInputChange(this.props.personType, this.props.index, e)}
                 />
                 No Stipend

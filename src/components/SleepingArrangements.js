@@ -91,7 +91,7 @@ class SleepingArrangements extends React.Component {
                 <RoomTypeDropdown personNum={index} handleRoomType={this.handleRoomType} roomType={this.state.roomType} />
               </div>
               ))}          
-          </div>
+          </div> 
 
           <div>
             <h6>Group Name (Optional)</h6>

@@ -82,6 +82,7 @@ class AboutYourPeopleForm extends React.Component {
   }
 
   render() {
+    console.log('ABOUT YOUR PEOPLE')
     return (
       <div className="about-people-form-wrapper">
         <div>

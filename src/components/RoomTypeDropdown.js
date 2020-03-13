@@ -68,11 +68,10 @@ const options = [
 class RoomTypeDropdown extends React.Component { 
   constructor(props){
     super(props);
-    // console.log(props)
   }
   
   render() {
-    // const defaultOption = this.state.selected
+
     var message='You\'ve selected ';
     return (
       <div className="room-type-dropdown-form-wrapper">
@@ -88,13 +87,8 @@ class RoomTypeDropdown extends React.Component {
               value={(this.props.roomType)} 
               id={'roomType' + this.props.personNum}
             />
-            {/* {console.log('this.props under dropdown', this.props)} */}
             
-            <p>{message} 
-            
-            {/* {this.props.roomType + this.props.index} */}
-            
-            </p>
+            <p>{message}  </p>
             
           </div>
           
