@@ -80,12 +80,12 @@ class ShoppingCart extends React.Component {
           </div>
 
           <div>
-            <p>Number of Nights: {this.state.nights}</p>
+            <p>Number of Nights: {this.state.nights.toFixed()}</p>
             <p>Number of Rooms: {this.state.rooms} $100</p>
             
             <p>Number of Parking Spots: {this.state.parking} $37</p>
             <p>Stipend to subtract: ${this.state.stipend}</p>
-            <p>Here is your total: ${this.state.total}</p>
+            <p>Here is your total: ${this.state.total.toFixed()}</p>
           </div>
         
           <button 

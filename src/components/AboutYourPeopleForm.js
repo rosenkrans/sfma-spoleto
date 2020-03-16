@@ -14,13 +14,7 @@ class AboutYourPeopleForm extends React.Component {
       }
     ],    
     minors: [
-      {userId: '',
-        name: '',
-        email: '',
-        phone: '',
-        section: '',
-        stipend: ''
-      }
+      
     ],
     createdAt: new Date(),
     trip: {people:{
