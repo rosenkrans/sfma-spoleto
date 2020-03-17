@@ -48,7 +48,7 @@ class AboutTheTripForm extends React.Component {
     userId: '',
     createdAt: new Date(),
     checkIn: new Date('May 22 2020'),
-    checkOut: new Date('May 26 2020'),
+    checkOut: new Date('May 25 2020'),
     rooms: 0,
     people: {
       adult: 0,
@@ -118,7 +118,7 @@ class AboutTheTripForm extends React.Component {
               selected={this.state.checkIn}
               value={this.state.checkIn}
               minDate={new Date('May 22 2020')}
-              maxDate={new Date('May 26 2020')}
+              maxDate={new Date('May 25 2020')}
               onChange={date => this.handleDateChange('checkIn', date)}
             />
           </div>
@@ -130,7 +130,7 @@ class AboutTheTripForm extends React.Component {
               selected={this.state.checkOut}
               value={this.state.checkOut}
               minDate={new Date('May 22 2020')}
-              maxDate={new Date('May 26 2020')}
+              maxDate={new Date('May 25 2020')}
               onChange={date => this.handleDateChange('checkOut', date)}
             />
           </div>

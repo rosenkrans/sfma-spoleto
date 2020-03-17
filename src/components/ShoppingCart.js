@@ -29,10 +29,10 @@ class ShoppingCart extends React.Component {
       console.log('stipend to subtract', this.state.stipend)
       console.log('total to pay', (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1) - (this.state.stipend)  )
       this.setState({
-        nights: ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1,
+        nights: ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400),
         rooms: data.aboutTrip.rooms,
         parking: data.aboutTrip.parking.spot,      
-        total: (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * (((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1)) - (this.state.stipend)
+        total: (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * (((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400))) - (this.state.stipend)
       })
     } catch(error){ 
       console.log('Error getting room or parking', error)
@@ -90,6 +90,7 @@ class ShoppingCart extends React.Component {
             <p>Number of Parking Spots: {this.state.parking} $37</p>
             <p>Stipend to subtract: ${this.state.stipend}</p>
             <p>Here is your total: ${this.state.total.toFixed()}</p>
+            <p>YOU WILL RECEIVE AN EMAIL WITH A LINK TO PAY VIA SQUARE</p>
           </div>
         
           <button 
