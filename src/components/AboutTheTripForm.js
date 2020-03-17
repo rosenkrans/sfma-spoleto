@@ -47,8 +47,8 @@ class AboutTheTripForm extends React.Component {
   state = {
     userId: '',
     createdAt: new Date(),
-    checkIn: new Date(),
-    checkOut: new Date(),
+    checkIn: new Date('May 22 2020'),
+    checkOut: new Date('May 26 2020'),
     rooms: 0,
     people: {
       adult: 0,

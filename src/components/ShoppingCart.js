@@ -23,14 +23,15 @@ class ShoppingCart extends React.Component {
       console.log('tripData', tripData.docs[0].data())   
       const data = tripData.docs[0].data()  
       
+      console.log('room cost', data.aboutTrip.rooms * 100)
       this.setState({
         nights: ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1,
         rooms: data.aboutTrip.rooms,
-        parking: data.aboutTrip.parking.spot,
-        total: (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400)) - (this.state.stipend)      
+        parking: data.aboutTrip.parking.spot, 
+        total: (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1) - (this.state.stipend)      
       })
       // console.log('parking spots: ', parking)
-    } catch(error){
+    } catch(error){ 
       console.log('Error getting room or parking', error)
     }
   }
@@ -42,7 +43,7 @@ class ShoppingCart extends React.Component {
       .get()
       const stipendInfo = stipendData.docs[0].data()
       console.log('stipend data', stipendInfo.aboutUser.adults)
-      const amountStipend = stipendInfo.aboutUser.adults.reduce((acc, adult) => adult.stipend ? acc + 70 : acc, 0)
+      const amountStipend = stipendInfo.aboutUser.adults.reduce((acc, adult) => adult.stipend === 'yes' ? acc + 70 : acc, 0)
       console.log("stipend money", amountStipend)
       this.setState({
         stipend: amountStipend
@@ -103,4 +104,4 @@ class ShoppingCart extends React.Component {
   }
 }
 
-export default ShoppingCart;
+export default ShoppingCart;  
