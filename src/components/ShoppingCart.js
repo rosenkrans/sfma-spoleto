@@ -20,17 +20,20 @@ class ShoppingCart extends React.Component {
       const tripData = await abouttripsRef
       .where('aboutTrip.userId', '==', userId)
       .get()
-      console.log('tripData', tripData.docs[0].data())   
+      // console.log('tripData', tripData.docs[0].data())   
       const data = tripData.docs[0].data()  
       
-      console.log('room cost', data.aboutTrip.rooms * 100)
+      console.log('room cost per day', data.aboutTrip.rooms * 100)
+      console.log('parking cost per day', data.aboutTrip.parking.spot * 37)
+      console.log('number of days', ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1)
+      console.log('stipend to subtract', this.state.stipend)
+      console.log('total to pay', (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1) - (this.state.stipend)  )
       this.setState({
         nights: ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1,
         rooms: data.aboutTrip.rooms,
-        parking: data.aboutTrip.parking.spot, 
-        total: (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * ((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1) - (this.state.stipend)      
+        parking: data.aboutTrip.parking.spot,      
+        total: (((data.aboutTrip.rooms * 100) + (data.aboutTrip.parking.spot * 37)) * (((data.aboutTrip.checkOut.seconds - data.aboutTrip.checkIn.seconds) / 86400) -1)) - (this.state.stipend)
       })
-      // console.log('parking spots: ', parking)
     } catch(error){ 
       console.log('Error getting room or parking', error)
     }
@@ -42,9 +45,9 @@ class ShoppingCart extends React.Component {
       .where('aboutUser.userId', '==', userId)
       .get()
       const stipendInfo = stipendData.docs[0].data()
-      console.log('stipend data', stipendInfo.aboutUser.adults)
+      // console.log('stipend data', stipendInfo.aboutUser.adults)
       const amountStipend = stipendInfo.aboutUser.adults.reduce((acc, adult) => adult.stipend === 'yes' ? acc + 70 : acc, 0)
-      console.log("stipend money", amountStipend)
+      // console.log("stipend money", amountStipend)
       this.setState({
         stipend: amountStipend
       })
